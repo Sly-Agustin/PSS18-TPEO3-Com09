@@ -7,6 +7,6 @@ public class Launcher {
 
 	public static void main(String[] x) {
 		Pantalla.getInstance();
-		LevelDirector.instancia();
+		LevelDirector.instancia().iniciarMotor();
 	}
 }

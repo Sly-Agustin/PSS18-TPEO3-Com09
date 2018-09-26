@@ -5,6 +5,7 @@ import java.util.Collection;
 import java.util.concurrent.LinkedBlockingQueue;
 
 import Entidades.*;
+import Entrada.Discreta;
 import InterfazGrafica.Pantalla;
 
 public abstract class AbsNivel {
@@ -22,6 +23,9 @@ public abstract class AbsNivel {
 	public abstract boolean gane();
 	public abstract boolean limpiar();
 	
+	private Discreta eliminaEnemigosConEnter;
+	
+	
 	
 	protected AbsNivel()
 	{
@@ -34,8 +38,13 @@ public abstract class AbsNivel {
 		toRemoveEnem = new LinkedBlockingQueue<>();
 		toRemoveEnt = new LinkedBlockingQueue<>();
 		
+		eliminaEnemigosConEnter = new Discreta(this::eliminaEnemies, Discreta.enter);
 	}
 	
+	private void eliminaEnemies()
+	{
+		toRemoveEnem.addAll(enemies);
+	}
 	
 	
 	public void agregarTodo() {
@@ -50,20 +59,21 @@ public abstract class AbsNivel {
 		elresto.forEach(e->e.refresh());	
 		
 		while(!toRemoveEnem.isEmpty()){
-			
-			
-			//desencolar y quitar de enemigo
-			//hacer lo mismo con entidad
+			Enemigo e = toRemoveEnem.remove();
+			enemies.remove(e);
+			Pantalla.getInstance().removeMostrable(e.getMostrable());
 		}
 		
 	}	
 	
 	public void addEntity(Entidad e) {
 		elresto.add(e);
+		Pantalla.getInstance().addMostrable(e.getMostrable());
 	}
 	
 	public void removeEntity(Entidad e) {
-		elresto.remove(e);
+		elresto.remove(e);		
+		Pantalla.getInstance().removeMostrable(e.getMostrable()); 
 	}
 	
 	

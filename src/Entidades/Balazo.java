@@ -5,6 +5,8 @@ import javax.swing.Icon;
 public class Balazo extends Entidad{
 	
 	
+	private float velocidad = 4f;
+	
 	protected Balazo(Icon icon) {
 		super(icon);
 		ia = new IABalaPlayer();
@@ -12,7 +14,7 @@ public class Balazo extends Entidad{
 
 	
 	public void onRefresh() {
-		cuerpo.mover(ia.ADondeVoy(this));
+		cuerpo.mover(ia.ADondeVoy(this).multK(velocidad));
 	}
 
 }

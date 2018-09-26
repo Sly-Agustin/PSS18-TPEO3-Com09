@@ -1,7 +1,10 @@
 package InterfazGrafica;
 
 import java.awt.Container;
+import java.awt.event.KeyListener;
+
 import Datos.*;
+import Entrada.Discreta;
 import Entrada.Teclado;
 
 import javax.swing.*;
@@ -43,14 +46,15 @@ public class Pantalla
 		container.remove(mostrable);
 	}
 	
-	public void addTeclado(Teclado teclado) {
-		frame.addKeyListener(teclado);
+	public void addTeclado(KeyListener kl) {
+		frame.addKeyListener(kl);
 
 	}
 
-	public void removeTeclado(Teclado teclado) {
-		frame.removeKeyListener(teclado);		
+	public void refresh() {
+		frame.repaint();		
 	}
+
 
 
 

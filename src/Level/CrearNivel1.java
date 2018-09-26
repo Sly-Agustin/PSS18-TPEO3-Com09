@@ -2,6 +2,7 @@ package Level;
 
 import Datos.GameData;
 import Entidades.Enemigo;
+import Entrada.Discreta;
 import TiposDeDatos.Coords;
 
 public class CrearNivel1 extends AbsNivel {
@@ -12,8 +13,10 @@ public class CrearNivel1 extends AbsNivel {
 
 	public CrearNivel1(int cantidadDeEnemigos) {
 		cantEnems = cantidadDeEnemigos;
+		
 	}
-	
+
+
 	
 	
 	public void crear() {

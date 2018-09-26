@@ -1,5 +1,7 @@
 package Level;
 
+import InterfazGrafica.Pantalla;
+
 public class LevelDirector
 {
 	protected AbsNivel nivel;
@@ -7,7 +9,10 @@ public class LevelDirector
 	private static LevelDirector instan;
 	public static LevelDirector instancia()
 	{
-		instan = instan == null ?  new LevelDirector() : instan;
+		if(instan==null)
+		{
+			instan = new LevelDirector();
+		}
 		return instan;
 	}
 	
@@ -17,9 +22,9 @@ public class LevelDirector
 	}
 	
 	private LevelDirector() {
+		System.out.println("--");
 		nivel = new CrearNivel1(5);
-		inicializarNivel();
-		iniciarMotor();
+		inicializarNivel();		
 	}
 	
 	private void inicializarNivel()
@@ -29,7 +34,7 @@ public class LevelDirector
 		nivel.agregarTodo();
 	}
 
-	private void iniciarMotor() {
+	public void iniciarMotor() {
 		
 		long time = System.nanoTime();
 		long time2 = System.nanoTime();
@@ -39,7 +44,8 @@ public class LevelDirector
 			time = System.nanoTime(); 
 			nivel.refrescarTodo();
 			time2 = System.nanoTime();
-			esperar(tiempoDeFrame-(time2-time));			
+			esperar(tiempoDeFrame-(time2-time));
+			Pantalla.getInstance().refresh();
 		}
 		
 	}

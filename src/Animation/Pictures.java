@@ -10,5 +10,6 @@ public class Pictures {
 	public static URL obstaculos = Pictures.class.getResource("Obstaculo.png");
 	public static URL player = Pictures.class.getResource("Player.png");
 	public static URL powerup = Pictures.class.getResource("PowerUp.png");
+	public static URL balazo = Pictures.class.getResource("fire.gif");
 	
 }

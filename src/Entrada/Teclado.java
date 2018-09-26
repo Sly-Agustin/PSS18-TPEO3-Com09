@@ -17,11 +17,11 @@ public class Teclado implements KeyListener
 		right=false;
 		Pantalla.getInstance().addTeclado(this);
 	}
-	
+	/*
 	public void destroy()
 	{
 		Pantalla.getInstance().removeTeclado(this);
-	}
+	}*/
 
 	@Override
 	public void keyTyped(KeyEvent e) 
