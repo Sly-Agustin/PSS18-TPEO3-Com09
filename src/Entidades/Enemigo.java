@@ -15,6 +15,7 @@ public class Enemigo extends Entidad {
 	public Enemigo(Icon icon) {
 		super(icon);
 		ia = new DummyIA();
+		valor = 10;
 	}
 
 

@@ -60,6 +60,7 @@ public abstract class AbsNivel {
 		
 		while(!toRemoveEnem.isEmpty()){
 			Enemigo e = toRemoveEnem.remove();
+			player.sumarPuntaje(e);
 			enemies.remove(e);
 			Pantalla.getInstance().removeMostrable(e.getMostrable());
 		}

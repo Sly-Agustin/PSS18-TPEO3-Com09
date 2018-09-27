@@ -22,7 +22,6 @@ public class LevelDirector
 	}
 	
 	private LevelDirector() {
-		System.out.println("--");
 		nivel = new CrearNivel1(5);
 		inicializarNivel();		
 	}

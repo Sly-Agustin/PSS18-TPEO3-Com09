@@ -14,6 +14,7 @@ public class Player extends Entidad {
 	
 	private static Icon playerIcon = new ImageIcon(Pictures.player);
 	private static Player inst;
+	private int puntaje;
 	
 	public static Player getInstance()
 	{
@@ -24,6 +25,7 @@ public class Player extends Entidad {
 	
 	protected Player(Icon icon) {
 		super(icon);
+		puntaje = 0;
 		ia = new PseudoIA();
 		cuerpo.setVelocidadMaxima(3);
 		disparoControl = new Discreta(this::disparar, Discreta.espacio);
@@ -39,6 +41,15 @@ public class Player extends Entidad {
 	
 	public void onRefresh() {
 		cuerpo.mover(ia.ADondeVoy(this));		
+	}
+	
+	public void sumarPuntaje(Entidad e) {
+		puntaje+=e.getValor();
+		System.out.println(puntaje);
+	}
+	
+	public int getPuntaje() {
+		return puntaje;
 	}
 
 

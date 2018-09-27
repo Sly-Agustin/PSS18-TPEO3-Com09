@@ -9,10 +9,12 @@ public abstract class Entidad {
 	protected CuerpoRigido cuerpo;
 	protected Mostrador mostrador;
 	protected IA ia;
+	protected int valor;
 	
 	protected Entidad(Icon icon) {
 		cuerpo = new CuerpoRigido();
 		mostrador = new Mostrador(icon);
+		
 	}
 	
 	public abstract void onRefresh();
@@ -36,5 +38,8 @@ public abstract class Entidad {
 		onRefresh();
 	}
 
+	public int getValor() {
+		return valor;
+	}
 	
 }
