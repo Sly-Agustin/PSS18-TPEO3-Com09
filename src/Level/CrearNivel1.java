@@ -2,23 +2,20 @@ package Level;
 
 import Datos.GameData;
 import Entidades.Enemigo;
+import Entidades.Obstaculo;
 import Entrada.Discreta;
 import TiposDeDatos.Coords;
 
 public class CrearNivel1 extends AbsNivel {
 
-	
-	
 	private int cantEnems;
+	private int cantObs;
 
-	public CrearNivel1(int cantidadDeEnemigos) {
+	public CrearNivel1(int cantidadDeEnemigos, int cantidadDeObs) {
 		cantEnems = cantidadDeEnemigos;
-		
+		cantObs = cantidadDeObs;
 	}
 
-
-	
-	
 	public void crear() {
 		int ancho = GameData.WindowSize.width;
 		for(int i=1; i<=cantEnems ; i++) {
@@ -27,6 +24,13 @@ public class CrearNivel1 extends AbsNivel {
 			Coords c = new Coords(ancho*i/(cantEnems+1),100);
 			enem.getCuerpo().setPosicion(c);
 		}
+		for(int i=1; i<=cantObs; i++) {
+			Obstaculo obs = new Obstaculo(Obstaculo.obs);
+			obstacles.add(obs);
+			Coords c = new Coords(ancho*i/(cantObs+1),200);
+			obs.getCuerpo().setPosicion(c);
+		}
+		
 		player.getCuerpo().setPosicion(new Coords(400,500));		
 	}
 

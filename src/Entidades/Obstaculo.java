@@ -12,6 +12,7 @@ public class Obstaculo extends Entidad {
 	
 	public Obstaculo(Icon icon) {
 		super(icon);
+		ia = new ObsIA();
 	}
 
 	public void onRefresh() {

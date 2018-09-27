@@ -7,9 +7,9 @@ import TiposDeDatos.Coords;
 
 public class ObsIA implements IA {
 
-	private static int modu = 80;
+	private static int modu = 40;
 	private int i=1;
-	private int k =1;
+	private int k=1;
 
 	public Coords ADondeVoy(Entidad e) {
 		int x = (int) e.getCuerpo().getPosicion().getX();
@@ -25,7 +25,7 @@ public class ObsIA implements IA {
 		}
 		i++;
 
-		return Coords.derecha.multK(k*e.cuerpo.getVelocidadMaxima());
+		return Coords.derecha.multK(k*e.cuerpo.getVelocidadMaxima()/2);
 	}
 
 }

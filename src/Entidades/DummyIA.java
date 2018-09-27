@@ -7,13 +7,12 @@ import TiposDeDatos.Coords;
 
 public class DummyIA implements IA{
 
-
-
 	private static int modu = 80;
 	private int i=1;
 	private int k =1;
-	public Coords ADondeVoy(Entidad e)
-	{
+	
+	public Coords ADondeVoy(Entidad e){
+		
 		int x = (int) e.getCuerpo().getPosicion().getX();
 		if(x >= GameData.WindowSize.getWidth()-90){
 			return Coords.izquierda;

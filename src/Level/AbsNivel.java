@@ -13,7 +13,8 @@ public abstract class AbsNivel {
 	protected Pantalla pantalla;
 	protected Player player;
 	protected Collection<Enemigo> enemies;
-	protected Collection<Entidad> elresto;
+	protected Collection<Obstaculo> obstacles;
+	protected Collection<Entidad> demasEntidades;
 	private Queue<Enemigo> toRemoveEnem;
 	private Queue<Entidad> toRemoveEnt;
 	
@@ -30,7 +31,8 @@ public abstract class AbsNivel {
 	protected AbsNivel()
 	{
 		enemies = new ArrayList<>();
-		elresto = new LinkedList<>();
+		obstacles = new ArrayList<>();
+		demasEntidades = new LinkedList<>();
 
 		player = Player.getInstance();
 		pantalla = Pantalla.getInstance();
@@ -50,13 +52,15 @@ public abstract class AbsNivel {
 	public void agregarTodo() {
 		pantalla.addMostrable(player.getMostrable());
 		enemies.forEach(e -> pantalla.addMostrable(e.getMostrable()));
+		obstacles.forEach(e -> pantalla.addMostrable(e.getMostrable()));
 		refrescarTodo();
 	}
 
 	public void refrescarTodo() {
 		player.refresh();
 		enemies.forEach(e->e.refresh());	
-		elresto.forEach(e->e.refresh());	
+		obstacles.forEach(e->e.refresh());
+		demasEntidades.forEach(e->e.refresh());	
 		
 		while(!toRemoveEnem.isEmpty()){
 			Enemigo e = toRemoveEnem.remove();
@@ -68,12 +72,12 @@ public abstract class AbsNivel {
 	}	
 	
 	public void addEntity(Entidad e) {
-		elresto.add(e);
+		demasEntidades.add(e);
 		Pantalla.getInstance().addMostrable(e.getMostrable());
 	}
 	
 	public void removeEntity(Entidad e) {
-		elresto.remove(e);		
+		demasEntidades.remove(e);		
 		Pantalla.getInstance().removeMostrable(e.getMostrable()); 
 	}
 	
