@@ -7,12 +7,11 @@ import TiposDeDatos.Coords;
 public class PseudoIA  implements IA
 {
 
+
+
 	private Teclado teclado = new Teclado();
 	
 	
-	
-	
-	@Override
 	public Coords ADondeVoy(Entidad e) {
 		
 		int x = (int) e.getCuerpo().getPosicion().getX();

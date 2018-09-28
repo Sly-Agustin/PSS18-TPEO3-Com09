@@ -11,6 +11,8 @@ public class DummyIA implements IA{
 	private int i=1;
 	private int k =1;
 	
+	
+	
 	public Coords ADondeVoy(Entidad e){
 		
 		int x = (int) e.getCuerpo().getPosicion().getX();

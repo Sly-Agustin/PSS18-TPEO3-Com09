@@ -13,6 +13,7 @@ public abstract class AbsNivel {
 	protected Pantalla pantalla;
 	protected Player player;
 	protected Collection<Enemigo> enemies;
+	protected Collection<EnemigoKami> enemiesK;
 	protected Collection<Obstaculo> obstacles;
 	protected Collection<Entidad> demasEntidades;
 	private Queue<Enemigo> toRemoveEnem;
@@ -31,6 +32,7 @@ public abstract class AbsNivel {
 	protected AbsNivel()
 	{
 		enemies = new ArrayList<>();
+		enemiesK = new ArrayList<>();
 		obstacles = new ArrayList<>();
 		demasEntidades = new LinkedList<>();
 
@@ -52,13 +54,15 @@ public abstract class AbsNivel {
 	public void agregarTodo() {
 		pantalla.addMostrable(player.getMostrable());
 		enemies.forEach(e -> pantalla.addMostrable(e.getMostrable()));
+		enemiesK.forEach(e->pantalla.addMostrable(e.getMostrable()));
 		obstacles.forEach(e -> pantalla.addMostrable(e.getMostrable()));
 		refrescarTodo();
 	}
 
 	public void refrescarTodo() {
 		player.refresh();
-		enemies.forEach(e->e.refresh());	
+		enemies.forEach(e->e.refresh());
+		enemiesK.forEach(e->e.refresh());
 		obstacles.forEach(e->e.refresh());
 		demasEntidades.forEach(e->e.refresh());	
 		

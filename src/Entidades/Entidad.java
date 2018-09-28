@@ -6,6 +6,14 @@ import javax.swing.*;
 import InterfazGrafica.Mostrador;
 public abstract class Entidad {
 
+	/*
+	 * Hacer el patron State en eneitdad para generalizar la IA
+	 * meter el onRefresh en entidad
+	 * generalizar mas todo
+	 * los puntajes y demas cosas buscar de meterlas en entidad
+	 * que cada entidad cambie de IA sin que nadie se entere, solo ellos.
+	 */
+	
 	protected CuerpoRigido cuerpo;
 	protected Mostrador mostrador;
 	protected IA ia;

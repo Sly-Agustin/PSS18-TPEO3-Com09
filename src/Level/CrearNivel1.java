@@ -2,6 +2,7 @@ package Level;
 
 import Datos.GameData;
 import Entidades.Enemigo;
+import Entidades.EnemigoKami;
 import Entidades.Obstaculo;
 import Entrada.Discreta;
 import TiposDeDatos.Coords;
@@ -9,21 +10,32 @@ import TiposDeDatos.Coords;
 public class CrearNivel1 extends AbsNivel {
 
 	private int cantEnems;
+	private int cantEnemsK;
 	private int cantObs;
 
-	public CrearNivel1(int cantidadDeEnemigos, int cantidadDeObs) {
+	public CrearNivel1(int cantidadDeEnemigos, int cantidadDeObs, int cantidadDeEnemigosK) {
 		cantEnems = cantidadDeEnemigos;
+		cantEnemsK=cantidadDeEnemigos;
 		cantObs = cantidadDeObs;
 	}
 
 	public void crear() {
 		int ancho = GameData.WindowSize.width;
+		//ENEMIGOS 1
 		for(int i=1; i<=cantEnems ; i++) {
 			Enemigo enem = new Enemigo(Enemigo.ic1);
 			enemies.add(enem);
 			Coords c = new Coords(ancho*i/(cantEnems+1),100);
 			enem.getCuerpo().setPosicion(c);
 		}
+		//ENEMIGOS 2
+		for(int i=1; i<=cantEnemsK;i++) {
+			EnemigoKami enemK = new EnemigoKami(EnemigoKami.ic2);
+			enemiesK.add(enemK);
+			Coords c = new Coords(ancho*i/(cantEnemsK+1),150);
+			enemK.getCuerpo().setPosicion(c);
+		}
+		//OBSTACULO
 		for(int i=1; i<=cantObs; i++) {
 			Obstaculo obs = new Obstaculo(Obstaculo.obs);
 			obstacles.add(obs);
