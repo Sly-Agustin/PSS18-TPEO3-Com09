@@ -1,6 +1,7 @@
-package Entidades;
+package IA;
 
 import Datos.GameData;
+import Entidades.Entidad;
 import Entrada.Teclado;
 import TiposDeDatos.Coords;
 

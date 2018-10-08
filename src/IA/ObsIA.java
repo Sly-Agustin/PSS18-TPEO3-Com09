@@ -1,8 +1,9 @@
-package Entidades;
+package IA;
 
 import java.util.Random;
 
 import Datos.GameData;
+import Entidades.Entidad;
 import TiposDeDatos.Coords;
 
 public class ObsIA implements IA {
@@ -25,7 +26,7 @@ public class ObsIA implements IA {
 		}
 		i++;
 
-		return Coords.derecha.multK(k*e.cuerpo.getVelocidadMaxima()/2);
+		return Coords.derecha.multK(k*e.getCuerpo().getVelocidadMaxima()/2);
 	}
 
 }

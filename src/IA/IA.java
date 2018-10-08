@@ -1,5 +1,6 @@
-package Entidades;
+package IA;
 
+import Entidades.Entidad;
 import TiposDeDatos.Coords;
 
 public interface IA {

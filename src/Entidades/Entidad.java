@@ -3,6 +3,7 @@ package Entidades;
 import TiposDeDatos.*;
 import javax.swing.*;
 
+import IA.IA;
 import InterfazGrafica.Mostrador;
 public abstract class Entidad {
 

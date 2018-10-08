@@ -4,6 +4,7 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
 import Animation.Pictures;
+import IA.DummyIA;
 
 public class Enemigo extends Entidad {
 

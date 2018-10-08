@@ -1,9 +1,10 @@
-package Entidades;
+package IA;
 
 import java.util.Random;
 
 import Datos.GameData;
-import TiposDeDatos.Coords;
+import Entidades.*;
+import TiposDeDatos.*;
 
 public class DummyIA implements IA{
 
@@ -28,7 +29,7 @@ public class DummyIA implements IA{
 		}
 		i++;
 
-		return Coords.derecha.multK(k*e.cuerpo.getVelocidadMaxima());
+		return Coords.derecha.multK(k*e.getCuerpo().getVelocidadMaxima());
 
 	}
 }
