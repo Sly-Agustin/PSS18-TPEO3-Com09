@@ -43,4 +43,12 @@ public class CuerpoRigido
 		posicion = posicion.sumar(direccion);
 	}
 
+	public boolean intersects(CuerpoRigido cr) {
+		boolean bool = false;
+		if(this.getPosicion().equals(cr.getPosicion())){
+			bool=true;
+		}
+		return bool;
+	}
+	
 }

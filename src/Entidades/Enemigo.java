@@ -17,6 +17,7 @@ public class Enemigo extends Entidad {
 		super(icon);
 		ia = new DummyIA();
 		valor = 10;
+		vida = 100;
 	}
 
 	
@@ -30,15 +31,12 @@ public class Enemigo extends Entidad {
 	public void setVida(int v) {
 		vida=v;
 	}
-
-
+	
 	
 	public Entidad serChocado(Entidad e) {
 		return this;
 	}
 
-
-	@Override
 	public void chocar(Entidad e) {
 		// TODO Auto-generated method stub
 		

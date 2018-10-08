@@ -20,11 +20,10 @@ public class Obstaculo extends Entidad {
 		cuerpo.mover(ia.ADondeVoy(this));
 	}
 
-	@Override
+	
+	
 	public Entidad serChocado(Entidad e) {
-		return e;
-		// TODO Auto-generated method stub
-		
+		return this;
 	}
 
 	@Override

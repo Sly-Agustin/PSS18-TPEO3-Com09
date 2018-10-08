@@ -1,9 +1,13 @@
 package Entidades;
 
+
 import javax.swing.Icon;
 
 import Colicionador.*;
 import IA.IABalaPlayer;
+import InterfazGrafica.Mostrador;
+import TiposDeDatos.Coords;
+import TiposDeDatos.CuerpoRigido;
 
 public class Balazo extends Entidad{
 
@@ -16,6 +20,7 @@ public class Balazo extends Entidad{
 	protected Balazo(Icon icon) {
 		super(icon);
 		ia = new IABalaPlayer();
+		dano=10;
 	}
 
 
@@ -34,14 +39,28 @@ public class Balazo extends Entidad{
 	}
 	
 	public void chocar(Entidad e) {
-		float posXentidad =  e.getCuerpo().getPosicion().getX();
-		float posXthis = this.getCuerpo().getPosicion().getX();
-
-		if(posXentidad == posXthis) {
+//		Coords posEntidad =  e.getCuerpo().getPosicion();
+//		Coords posThis = this.getCuerpo().getPosicion();
+//		if(posEntidad.getX() == posThis.getX() && posEntidad.getY() == posThis.getY()) {
+//			col.afectarEnemigo((Enemigo) e);
+//			System.out.println("Disparo choco con enemigo");
+//		}
+		
+//		Mostrador rEntidad = e.getMostrable();
+//		Mostrador rThis = this.getMostrable();
+//		
+//		if(rEntidad == rThis) {
+//			col.afectarEnemigo((Enemigo) e);
+//			System.out.println("Disparo choco con enemigo");
+//		}
+		
+		CuerpoRigido crThis = this.getCuerpo();
+		CuerpoRigido crEntidad = e.getCuerpo();
+		if(crThis.intersects(crEntidad)) {
+			System.out.println("Disparo colisiono");
 			col.afectarEnemigo((Enemigo) e);
+			System.out.println("Disparo afecto");
 		}
-
 	}
-
 
 }
