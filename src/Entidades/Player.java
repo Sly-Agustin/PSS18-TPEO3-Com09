@@ -53,5 +53,13 @@ public class Player extends Entidad {
 		return puntaje;
 	}
 
+	@Override
+	public Entidad serChocado(Entidad e) {
+		return e;
+		// TODO Auto-generated method stub
+	}
+	public void chocar(Entidad e) {
+		
+	}
 
 }

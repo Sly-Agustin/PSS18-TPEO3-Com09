@@ -19,6 +19,7 @@ public abstract class Entidad {
 	protected Mostrador mostrador;
 	protected IA ia;
 	protected int valor;
+	protected int vida;
 	
 	protected Entidad(Icon icon) {
 		cuerpo = new CuerpoRigido();
@@ -32,8 +33,7 @@ public abstract class Entidad {
 		return mostrador;
 	}
 	
-	public CuerpoRigido getCuerpo()
-	{
+	public CuerpoRigido getCuerpo(){
 		return cuerpo;
 	}
 	
@@ -50,5 +50,15 @@ public abstract class Entidad {
 	public int getValor() {
 		return valor;
 	}
+	public int getVida() {
+		return vida;
+	}
+	public void setVida(int v) {
+		vida=v;
+	}
+	
+	public abstract Entidad serChocado(Entidad e);
+	
+	public abstract void chocar(Entidad e);
 	
 }

@@ -19,5 +19,18 @@ public class Obstaculo extends Entidad {
 	public void onRefresh() {
 		cuerpo.mover(ia.ADondeVoy(this));
 	}
+
+	@Override
+	public Entidad serChocado(Entidad e) {
+		return e;
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void chocar(Entidad e) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }
