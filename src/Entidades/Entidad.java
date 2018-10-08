@@ -2,9 +2,10 @@ package Entidades;
 
 import TiposDeDatos.*;
 import javax.swing.*;
-
+import java.awt.Rectangle;
 import IA.IA;
 import InterfazGrafica.Mostrador;
+
 public abstract class Entidad {
 
 	/*
@@ -56,6 +57,8 @@ public abstract class Entidad {
 	public void setVida(int v) {
 		vida=v;
 	}
+	
+	
 	
 	public abstract Entidad serChocado(Entidad e);
 	
