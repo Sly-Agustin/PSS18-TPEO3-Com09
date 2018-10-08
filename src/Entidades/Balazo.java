@@ -2,7 +2,7 @@ package Entidades;
 
 import javax.swing.Icon;
 
-import Colicionador.*;
+import Colisionador.*;
 import IA.IABalaPlayer;
 
 public class Balazo extends Entidad{
