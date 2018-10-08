@@ -28,6 +28,22 @@ public class Coords {
 		return new Coords (x+v.getX(), y+v.getY());
 	}
 	
+	public Coords subir(int i) {
+		return new Coords (x-i,y);
+	}
+	
+	public Coords bajar(int i) {
+		return new Coords (x+i,y);
+	}
+	
+	public Coords derecha(int i) {
+		return new Coords (x,y+i);
+	}
+	
+	public Coords izquierda(int i) {
+		return new Coords (x,y-i);
+	}
+	
 	public Coords multK(float k) {
 		return new Coords(x*k,y*k);
 	}

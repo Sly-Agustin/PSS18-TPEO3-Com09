@@ -28,5 +28,4 @@ public class ObsIA implements IA {
 
 		return Coords.derecha.multK(k*e.getCuerpo().getVelocidadMaxima()/2);
 	}
-
 }

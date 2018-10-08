@@ -20,7 +20,7 @@ public class EnemigoKami extends Enemigo{
 
 	
 	public void onRefresh() {
-		cuerpo.mover(ia.ADondeVoy(this).multK(velocidad)); //se  mueve como un disparo
+		cuerpo.mover(ia.ADondeVoy(this).multK(velocidad)); //Se  mueve como un disparo
 	}
 
 }

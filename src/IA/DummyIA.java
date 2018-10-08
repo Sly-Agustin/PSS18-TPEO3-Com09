@@ -17,7 +17,7 @@ public class DummyIA implements IA{
 	public Coords ADondeVoy(Entidad e){
 		
 		int x = (int) e.getCuerpo().getPosicion().getX();
-		if(x >= GameData.WindowSize.getWidth()-90){
+		if(x >= GameData.WindowSize.getWidth()-40){
 			return Coords.izquierda;
 		}
 		if(x <= 0){
@@ -30,6 +30,6 @@ public class DummyIA implements IA{
 		i++;
 
 		return Coords.derecha.multK(k*e.getCuerpo().getVelocidadMaxima());
-
 	}
+	
 }
