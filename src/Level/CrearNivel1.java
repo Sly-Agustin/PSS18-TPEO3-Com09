@@ -2,25 +2,26 @@ package Level;
 
 import Datos.GameData;
 import Entidades.Enemigo;
+import Entidades.EnemigoKami;
+import Entidades.Obstaculo;
 import Entrada.Discreta;
 import TiposDeDatos.Coords;
 
 public class CrearNivel1 extends AbsNivel {
 
-	
-	
 	private int cantEnems;
+	private int cantEnemsK;
+	private int cantObs;
 
-	public CrearNivel1(int cantidadDeEnemigos) {
+	public CrearNivel1(int cantidadDeEnemigos, int cantidadDeObs, int cantidadDeEnemigosK) {
 		cantEnems = cantidadDeEnemigos;
-		
+		cantEnemsK=cantidadDeEnemigos;
+		cantObs = cantidadDeObs;
 	}
 
-
-	
-	
 	public void crear() {
 		int ancho = GameData.WindowSize.width;
+		//ENEMIGOS 1
 		for(int i=1; i<=cantEnems ; i++) {
 			Enemigo enem = new Enemigo(Enemigo.ic1);
 			Enemigo enem1 = new Enemigo(Enemigo.ic2);
@@ -31,6 +32,21 @@ public class CrearNivel1 extends AbsNivel {
 			enem.getCuerpo().setPosicion(c);
 			enem1.getCuerpo().setPosicion(c1);
 		}
+		//ENEMIGOS 2
+		for(int i=1; i<=cantEnemsK;i++) {
+			EnemigoKami enemK = new EnemigoKami(EnemigoKami.ic2);
+			enemiesK.add(enemK);
+			Coords c = new Coords(ancho*i/(cantEnemsK+1),150);
+			enemK.getCuerpo().setPosicion(c);
+		}
+		//OBSTACULO
+		for(int i=1; i<=cantObs; i++) {
+			Obstaculo obs = new Obstaculo(Obstaculo.obs);
+			obstacles.add(obs);
+			Coords c = new Coords(ancho*i/(cantObs+1),200);
+			obs.getCuerpo().setPosicion(c);
+		}
+		
 		player.getCuerpo().setPosicion(new Coords(400,500));		
 	}
 

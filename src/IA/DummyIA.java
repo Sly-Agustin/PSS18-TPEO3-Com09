@@ -1,17 +1,21 @@
-package Entidades;
+package IA;
 
 import java.util.Random;
 
 import Datos.GameData;
-import TiposDeDatos.Coords;
+import Entidades.*;
+import TiposDeDatos.*;
 
-public class ObsIA implements IA {
+public class DummyIA implements IA{
 
 	private static int modu = 80;
 	private int i=1;
 	private int k =1;
-
-	public Coords ADondeVoy(Entidad e) {
+	
+	
+	
+	public Coords ADondeVoy(Entidad e){
+		
 		int x = (int) e.getCuerpo().getPosicion().getX();
 		if(x >= GameData.WindowSize.getWidth()-90){
 			return Coords.izquierda;
@@ -25,7 +29,7 @@ public class ObsIA implements IA {
 		}
 		i++;
 
-		return Coords.derecha.multK(k*e.cuerpo.getVelocidadMaxima());
-	}
+		return Coords.derecha.multK(k*e.getCuerpo().getVelocidadMaxima());
 
+	}
 }

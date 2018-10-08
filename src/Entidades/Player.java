@@ -6,6 +6,7 @@ import javax.swing.ImageIcon;
 import Animation.Pictures;
 import Datos.IconsManager;
 import Entrada.Discreta;
+import IA.PseudoIA;
 import Level.AbsNivel;
 import Level.LevelDirector;
 import TiposDeDatos.Coords;

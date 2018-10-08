@@ -4,6 +4,7 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
 import Animation.Pictures;
+import IA.ObsIA;
 
 public class Obstaculo extends Entidad {
 
@@ -12,6 +13,7 @@ public class Obstaculo extends Entidad {
 	
 	public Obstaculo(Icon icon) {
 		super(icon);
+		ia = new ObsIA();
 	}
 
 	public void onRefresh() {

@@ -6,7 +6,8 @@ public class Coords {
 
 	public static final Coords izquierda = new Coords(-1,0);
 	public static final Coords derecha = new Coords(1,0);
-
+	public static final Coords abajo = new Coords(0,1);
+	public static final Coords arriba = new Coords(0,-1);
 	
 	private final float x;
 	private final float y;

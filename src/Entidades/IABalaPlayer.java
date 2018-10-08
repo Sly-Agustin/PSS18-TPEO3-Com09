@@ -1,5 +1,6 @@
 package Entidades;
 
+import IA.IA;
 import TiposDeDatos.Coords;
 
 public class IABalaPlayer implements IA{
