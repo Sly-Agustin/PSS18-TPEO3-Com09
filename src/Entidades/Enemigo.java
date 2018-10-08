@@ -11,6 +11,7 @@ public class Enemigo extends Entidad {
 	
 	public static Icon ic1 = new ImageIcon(Pictures.enemigo1);
 	
+	private int vida;
 	
 	public Enemigo(Icon icon) {
 		super(icon);
@@ -18,9 +19,31 @@ public class Enemigo extends Entidad {
 		valor = 10;
 	}
 
-
+	
 	public void onRefresh() {
 		cuerpo.mover(ia.ADondeVoy(this));		
 	}
+	
+	public int getVida() {
+		return vida;
+	}
+	public void setVida(int v) {
+		vida=v;
+	}
 
+
+	
+	public Entidad serChocado(Entidad e) {
+		return this;
+	}
+
+
+	@Override
+	public void chocar(Entidad e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	
 }
