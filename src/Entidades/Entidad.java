@@ -2,7 +2,9 @@ package Entidades;
 
 import TiposDeDatos.*;
 import javax.swing.*;
-import java.awt.Rectangle;
+
+import Colisionador.Colisionador;
+
 import IA.IA;
 import InterfazGrafica.Mostrador;
 
@@ -21,6 +23,7 @@ public abstract class Entidad {
 	protected IA ia;
 	protected int valor;
 	protected int vida;
+	protected Colisionador col;
 	
 	protected Entidad(Icon icon) {
 		cuerpo = new CuerpoRigido();
@@ -33,21 +36,9 @@ public abstract class Entidad {
 	public Mostrador getMostrable() {
 		return mostrador;
 	}
-	
 	public CuerpoRigido getCuerpo(){
 		return cuerpo;
 	}
-	
-	public void refresh() {
-		int w,h,x,y;
-		w = mostrador.getWidth();
-		h = mostrador.getHeight();
-		x = (int)cuerpo.getPosicion().getX();
-		y = (int)cuerpo.getPosicion().getY();
-		mostrador.setBounds(x,y,w,h);
-		onRefresh();
-	}
-
 	public int getValor() {
 		return valor;
 	}
@@ -59,9 +50,23 @@ public abstract class Entidad {
 	}
 	
 	
+	public void refresh() {
+		int w,h,x,y;
+		w = mostrador.getWidth();
+		h = mostrador.getHeight();
+		x = (int)cuerpo.getPosicion().getX();
+		y = (int)cuerpo.getPosicion().getY();
+		mostrador.setBounds(x,y,w,h);
+		onRefresh();
+	}
+
+
 	
-	public abstract Entidad serChocado(Entidad e);
+	
+	
+	public abstract void serChocado(Entidad e);
 	
 	public abstract void chocar(Entidad e);
 	
+	public abstract void aceptar(Colisionador c);
 }

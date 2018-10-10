@@ -3,10 +3,10 @@ package Entidades;
 
 import javax.swing.Icon;
 
-import Colicionador.*;
+import Colisionador.*;
 import IA.IABalaPlayer;
-import InterfazGrafica.Mostrador;
-import TiposDeDatos.Coords;
+//import InterfazGrafica.Mostrador;
+//import TiposDeDatos.Coords;
 import TiposDeDatos.CuerpoRigido;
 
 public class Balazo extends Entidad{
@@ -21,6 +21,7 @@ public class Balazo extends Entidad{
 		super(icon);
 		ia = new IABalaPlayer();
 		dano=10;
+		col = new CDisparo();
 	}
 
 
@@ -34,8 +35,12 @@ public class Balazo extends Entidad{
 	}
 	
 	
-	public Entidad serChocado(Entidad e) {
-		return this;
+	public void aceptar(Colisionador c) {
+		
+	}
+	
+	public void serChocado(Entidad e) {
+		
 	}
 	
 	public void chocar(Entidad e) {

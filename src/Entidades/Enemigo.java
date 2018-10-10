@@ -2,8 +2,8 @@ package Entidades;
 
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
-
 import Animation.Pictures;
+import Colisionador.Colisionador;
 import IA.DummyIA;
 
 public class Enemigo extends Entidad {
@@ -12,6 +12,7 @@ public class Enemigo extends Entidad {
 	public static Icon ic1 = new ImageIcon(Pictures.enemigo1);
 	
 	private int vida;
+	
 	
 	public Enemigo(Icon icon) {
 		super(icon);
@@ -33,13 +34,16 @@ public class Enemigo extends Entidad {
 	}
 	
 	
-	public Entidad serChocado(Entidad e) {
-		return this;
+	public void serChocado(Entidad e) {
+		
 	}
 
 	public void chocar(Entidad e) {
-		// TODO Auto-generated method stub
 		
+	}
+
+	public void aceptar(Colisionador c) {
+		c.afectarEnemigo(this);
 	}
 
 

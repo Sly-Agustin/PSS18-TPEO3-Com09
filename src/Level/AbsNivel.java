@@ -11,13 +11,18 @@ import InterfazGrafica.Pantalla;
 public abstract class AbsNivel {
 	
 	protected Pantalla pantalla;
+	
 	protected Player player;
 	protected Collection<Enemigo> enemies;
 	protected Collection<EnemigoKami> enemiesK;
 	protected Collection<Obstaculo> obstacles;
 	protected Collection<Entidad> demasEntidades;
+	
 	private Queue<Enemigo> toRemoveEnem;
 	private Queue<Entidad> toRemoveEnt;
+	
+	private Discreta eliminaEnemigosConEnter;
+	
 	
 	
 	public abstract void crear();
@@ -25,12 +30,8 @@ public abstract class AbsNivel {
 	public abstract boolean gane();
 	public abstract boolean limpiar();
 	
-	private Discreta eliminaEnemigosConEnter;
 	
-	
-	
-	protected AbsNivel()
-	{
+	protected AbsNivel(){
 		enemies = new ArrayList<>();
 		enemiesK = new ArrayList<>();
 		obstacles = new ArrayList<>();
@@ -45,8 +46,7 @@ public abstract class AbsNivel {
 		eliminaEnemigosConEnter = new Discreta(this::eliminaEnemies, Discreta.enter);
 	}
 	
-	private void eliminaEnemies()
-	{
+	private void eliminaEnemies(){
 		toRemoveEnem.addAll(enemies);
 	}
 	

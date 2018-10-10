@@ -1,6 +1,5 @@
 package InterfazGrafica;
 
-
 import javax.swing.Icon;
 import javax.swing.JLabel;
 

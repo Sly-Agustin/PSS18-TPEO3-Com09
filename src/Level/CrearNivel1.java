@@ -28,7 +28,7 @@ public class CrearNivel1 extends AbsNivel {
 			Coords c = new Coords(ancho*i/(cantEnems+1),100);
 			enem.getCuerpo().setPosicion(c);
 		}
-		//ENEMIGOS 2
+		//ENEMIGOS KAMI
 		for(int i=1; i<=cantEnemsK;i++) {
 			EnemigoKami enemK = new EnemigoKami(EnemigoKami.ic2);
 			enemiesK.add(enemK);

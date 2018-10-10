@@ -4,6 +4,7 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
 import Animation.Pictures;
+import Colisionador.Colisionador;
 import Datos.IconsManager;
 import Entrada.Discreta;
 import IA.PseudoIA;
@@ -53,12 +54,17 @@ public class Player extends Entidad {
 		return puntaje;
 	}
 
-	@Override
-	public Entidad serChocado(Entidad e) {
-		return e;
-		// TODO Auto-generated method stub
+	
+	
+	
+	public void serChocado(Entidad e) {
+		
 	}
 	public void chocar(Entidad e) {
+		
+	}
+
+	public void aceptar(Colisionador c) {
 		
 	}
 

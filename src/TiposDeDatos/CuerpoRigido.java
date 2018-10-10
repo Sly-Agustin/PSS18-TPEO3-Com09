@@ -1,14 +1,14 @@
 package TiposDeDatos;
 
-public class CuerpoRigido 
-{
+import java.awt.Rectangle;
+
+public class CuerpoRigido extends Rectangle {
 	
 	private Coords posicion;
 	private float velocidadMaxima;
 	private float aceleracion;
 	
-	public CuerpoRigido()
-	{
+	public CuerpoRigido(){
 		setPosicion(Coords.ORIGEN);
 		setVelocidadMaxima(1);
 		setAceleracion(1);
@@ -43,12 +43,18 @@ public class CuerpoRigido
 		posicion = posicion.sumar(direccion);
 	}
 
-	public boolean intersects(CuerpoRigido cr) {
-		boolean bool = false;
-		if(this.getPosicion().equals(cr.getPosicion())){
-			bool=true;
-		}
-		return bool;
-	}
+	
+	
+	// ESTE METODO NO LO REDEFINO PORQUE CUERPO RIGIDO EXTIENDE A RECTANGLE
+//	public boolean intersects(CuerpoRigido cr) {
+//		boolean bool = false;
+//		int ancho = cr.width;
+//		int alto = cr.height;
+//		
+//		if(this.getPosicion().equals(cr.getPosicion())){
+//			bool=true;
+//		}
+//		return bool;
+//	}
 	
 }
