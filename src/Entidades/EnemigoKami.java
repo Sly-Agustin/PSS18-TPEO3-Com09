@@ -4,7 +4,8 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
 import Animation.Pictures;
-import IA.KamiIA;
+import IA.KamiIA1;
+import IA.KamiIA2;
 
 public class EnemigoKami extends Enemigo{
 
@@ -14,7 +15,7 @@ public class EnemigoKami extends Enemigo{
 	
 	public EnemigoKami(Icon icon) {
 		super(icon);
-		ia = new KamiIA();
+		ia = new KamiIA2();
 		valor=15;
 	}
 
