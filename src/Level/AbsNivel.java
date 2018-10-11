@@ -37,10 +37,7 @@ public abstract class AbsNivel {
 		
 		toRemoveEnt = new LinkedBlockingQueue<>();
 		
-		eliminaEnemigosConEnter = new Discreta(this::eliminaEnemies, Discreta.enter);
-		
-		
-		
+		eliminaEnemigosConEnter = new Discreta(this::eliminaEnemies, Discreta.enter);	
 	}
 	
 	private void eliminaEnemies(){

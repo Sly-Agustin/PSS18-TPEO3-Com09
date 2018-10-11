@@ -12,9 +12,7 @@ public class Enemigo extends Entidad {
 
 	
 	public static Icon ic1 = new ImageIcon(Pictures.enemigo1);
-	
 
-	
 	
 	public Enemigo(Icon icon) {
 		super(icon);
@@ -29,26 +27,17 @@ public class Enemigo extends Entidad {
 		cuerpo.mover(ia.ADondeVoy(this));		
 	}
 	
-
 	public void setVida(int v) {
 		vida=v;
 	}
-	
-	
-	
-	
-	
 
 	public void aceptar(Colisionador c) {
 		c.afectarEnemigo(this);
 	}
 
-
 	@Override
 	public void colisionasteCon(Entidad another) {
-		another.aceptar(col);		
+		another.aceptar(col);	
 	}
-
-
 	
 }

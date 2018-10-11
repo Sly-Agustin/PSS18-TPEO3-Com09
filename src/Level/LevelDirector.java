@@ -7,17 +7,14 @@ public class LevelDirector
 	protected AbsNivel nivel;
 	
 	private static LevelDirector instan;
-	public static LevelDirector instancia()
-	{
-		if(instan==null)
-		{
+	public static LevelDirector instancia(){
+		if(instan==null){
 			instan = new LevelDirector();
 		}
 		return instan;
 	}
 	
-	public AbsNivel currentLevel()
-	{
+	public AbsNivel currentLevel(){
 		return nivel;
 	}
 	
@@ -36,8 +33,7 @@ public class LevelDirector
 		long time = System.nanoTime();
 		long time2 = System.nanoTime();
 		long tiempoDeFrame = 1_000_000_000L/60;
-		while(true)
-		{
+		while(true){
 			time = System.nanoTime(); 
 			nivel.refrescarTodo();
 			time2 = System.nanoTime();
@@ -48,8 +44,7 @@ public class LevelDirector
 	}
 
 	private void esperar(long l) {
-		try
-		{
+		try{
 			if(l>0)
 			Thread.sleep(l/1000000);
 		}

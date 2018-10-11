@@ -33,14 +33,10 @@ public class Balazo extends Entidad{
 	public int getDano() {
 		return dano;
 	}
-	
-	
+		
 	public void aceptar(Colisionador c) {
 		c.afectarDisparo(this);
-		System.out.println("Balazo modificado por "+c.getClass());
 	}
-	
-	
 
 	@Override
 	public void colisionasteCon(Entidad another) {

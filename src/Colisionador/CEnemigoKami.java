@@ -18,7 +18,7 @@ public class CEnemigoKami extends Colisionador {
 	}
 
 	public void afectarJugador(Player p) {
-		p.setVida(p.getVida()-(e.getVida()/e.getValor()));
+		p.setVida(p.getVida()-damage);
 		/**
 		 * Al colisionar al jugador se le descuenta de la vida que tenga la vida del enemigo
 		 * dividido por el puntaje que tenga al morir.

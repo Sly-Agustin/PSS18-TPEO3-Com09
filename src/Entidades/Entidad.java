@@ -62,11 +62,6 @@ public abstract class Entidad implements Refrescable {
 		onRefresh();
 	}
 
-
-	
-	
-	
-	
 	public abstract void aceptar(Colisionador c);
 
 	public abstract void colisionasteCon(Entidad another);

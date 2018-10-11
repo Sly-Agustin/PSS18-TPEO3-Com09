@@ -1,0 +1,7 @@
+Modificaciones diagrama de Clase:
+
+* la clase jugador en el mapa
+* Que la clase juego sea el "main" del juego.
+* Clases Enemigo , premio y obstaculo, no interfaces...
+* Tener un solo enemigo y habilitarle funciones según el enemigo que queramos que sea o crear 3 enemigos completamente distintos
+con sus caracteristicas particulares?

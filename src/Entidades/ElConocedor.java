@@ -4,9 +4,11 @@ import java.util.*;
 import java.util.concurrent.LinkedBlockingDeque;
 
 import Level.LevelDirector;
-public class ElConocedor implements Refrescable
-{
+public class ElConocedor implements Refrescable{
+//Clase maestra que conoce todas las entidades y las colisiones que ocurren (Cliente)
 	
+	
+	//Singleton
 	private static ElConocedor instance;
 	public static ElConocedor instancia() {
 		if(instance==null) {
@@ -14,10 +16,11 @@ public class ElConocedor implements Refrescable
 		}
 		return instance;
 	}
+
 	
-	
+//	private Player p;
 	private Collection<Entidad> entidades;
-	private Queue<Entidad> removeQueue; //TODO HACEOTRO PARA ADD
+	private Queue<Entidad> removeQueue; //TODO HACER OTRO PARA ADD
 	
 	
 	private ElConocedor() {
@@ -29,16 +32,17 @@ public class ElConocedor implements Refrescable
 		entidades.add(entidad);
 	}
 	
-	public void refresh()
-	{		
-		
+	public void refresh(){		
+//		if(p.getInstance().getVida()<=0) {
+//			removeQueue.add(p);
+//			LevelDirector.instancia().currentLevel().removeEntity(p);
+//		}
 		for(Entidad e : entidades) {
 			
 			if(e.getVida()<=0) {
 				removeQueue.add(e);
 				LevelDirector.instancia().currentLevel().removeEntity(e);
 			}
-			
 			
 			for(Entidad e1:entidades) {
 				if(e!=e1 && e.getCuerpo().CollidesWith(e1.getCuerpo())) {

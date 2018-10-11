@@ -19,11 +19,12 @@ public class Player extends Entidad {
 	private static Player inst;
 	private int puntaje;
 	
-	public static Player getInstance()
-	{
+	public static Player getInstance(){
 		inst = inst != null? inst : new Player(playerIcon);
 		return inst;
 	}
+	
+	
 	private Discreta disparoControl;
 	
 	protected Player(Icon icon) {
@@ -65,7 +66,6 @@ public class Player extends Entidad {
 
 	@Override
 	public void colisionasteCon(Entidad another) {
-		
 		another.aceptar(col);		
 	}
 

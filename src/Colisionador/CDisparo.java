@@ -6,10 +6,6 @@ public class CDisparo extends Colisionador {
 //Visitor Concrete
 	
 	
-	//private Enemigo e;
-	//private Obstaculo o;
-
-	
 	private float damage;
 	
 	public CDisparo(float damage) {
