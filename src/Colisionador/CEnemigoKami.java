@@ -6,10 +6,17 @@ import Entidades.EnemigoKami;
 import Entidades.Obstaculo;
 import Entidades.Player;
 
-public class CEnemigo extends Colisionador{
-	
+public class CEnemigoKami extends Colisionador {
+
+
 	private Enemigo e;
-	
+
+	private float damage;
+
+	public CEnemigoKami(float damage) {
+		this.damage = damage;
+	}
+
 	public void afectarJugador(Player p) {
 		p.setVida(p.getVida()-(e.getVida()/e.getValor()));
 		/**

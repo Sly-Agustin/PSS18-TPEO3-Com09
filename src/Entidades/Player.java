@@ -4,6 +4,7 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
 import Animation.Pictures;
+import Colisionador.CJugador;
 import Colisionador.Colisionador;
 import Datos.IconsManager;
 import Entrada.Discreta;
@@ -31,6 +32,8 @@ public class Player extends Entidad {
 		ia = new PseudoIA();
 		cuerpo.setVelocidadMaxima(3);
 		disparoControl = new Discreta(this::disparar, Discreta.espacio);
+		vida = 100;
+		col  = new CJugador();
 	}
 	
 	private void disparar() {
@@ -39,6 +42,7 @@ public class Player extends Entidad {
 		b.cuerpo.setPosicion(cuerpo.getPosicion().sumar(new Coords(playerIcon.getIconWidth()/2- b.getMostrable().getIcon().getIconWidth()/2,-40)));
 		AbsNivel n = LevelDirector.instancia().currentLevel();
 		n.addEntity(b);
+		ElConocedor.instancia().add(b);
 	}
 	
 	public void onRefresh() {
@@ -55,17 +59,14 @@ public class Player extends Entidad {
 	}
 
 	
-	
-	
-	public void serChocado(Entidad e) {
-		
-	}
-	public void chocar(Entidad e) {
-		
+	public void aceptar(Colisionador c) {
+		c.afectarJugador(this);
 	}
 
-	public void aceptar(Colisionador c) {
+	@Override
+	public void colisionasteCon(Entidad another) {
 		
+		another.aceptar(col);		
 	}
 
 }

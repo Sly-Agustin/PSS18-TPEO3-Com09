@@ -3,24 +3,30 @@ package Colisionador;
 import Entidades.*;
 
 public class CDisparo extends Colisionador {
-
+//Visitor Concrete
+	
+	
 	//private Enemigo e;
 	//private Obstaculo o;
 
-	private Balazo b;
+	
+	private float damage;
+	
+	public CDisparo(float damage) {
+		this.damage = damage;
+	}
 
 	public void afectarJugador(Player p) {
 		//el disparo no afecta al jugador
 	}
 	public void afectarEnemigo(Enemigo e) {
-		e.setVida(e.getVida()-b.getDano());
+		e.setVida(e.getVida()-damage);
 	}
 	public void afectarEnemigoKami(EnemigoKami ek) {
-		ek.setVida(ek.getVida()-b.getDano());
+		ek.setVida(ek.getVida()-damage);
 	}
 	public void afectarObstaculo(Obstaculo o) {
-		o.setVida(o.getVida()-b.getDano());
+		o.setVida(o.getVida()-damage);
 	}
-
 
 }

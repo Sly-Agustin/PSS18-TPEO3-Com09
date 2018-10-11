@@ -1,17 +1,19 @@
 package TiposDeDatos;
 
-import java.awt.Rectangle;
 
-public class CuerpoRigido extends Rectangle {
+public class CuerpoRigido{
 	
 	private Coords posicion;
 	private float velocidadMaxima;
 	private float aceleracion;
+	private CajaDeColisiones hitbox;
 	
-	public CuerpoRigido(){
-		setPosicion(Coords.ORIGEN);
+	public CuerpoRigido(float w, float h){
+		
 		setVelocidadMaxima(1);
 		setAceleracion(1);
+		hitbox = new CajaDeColisiones(new Coords(w,h));
+		setPosicion(Coords.ORIGEN);
 	}
 
 	public float getAceleracion() {
@@ -37,24 +39,18 @@ public class CuerpoRigido extends Rectangle {
 	
 	public void setPosicion(Coords posicion) {
 		this.posicion = posicion;
+		hitbox.setSupIzq(posicion);
 	}
 	
 	public void mover(Coords direccion){
-		posicion = posicion.sumar(direccion);
+		setPosicion(posicion.sumar(direccion));
 	}
 
+	public boolean CollidesWith(CuerpoRigido otro) {
+		return hitbox.Solapa(otro.hitbox);
+	}
 	
 	
-	// ESTE METODO NO LO REDEFINO PORQUE CUERPO RIGIDO EXTIENDE A RECTANGLE
-//	public boolean intersects(CuerpoRigido cr) {
-//		boolean bool = false;
-//		int ancho = cr.width;
-//		int alto = cr.height;
-//		
-//		if(this.getPosicion().equals(cr.getPosicion())){
-//			bool=true;
-//		}
-//		return bool;
-//	}
+	
 	
 }

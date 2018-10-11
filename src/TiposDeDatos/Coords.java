@@ -40,4 +40,18 @@ public class Coords {
 	public Coords aumentarY(int i) {
 		return new Coords(x,y+i);
 	}
+	
+	public boolean aLaIzquierda(Coords otra) {
+		return otra.x < x;
+	}
+	public boolean abajo(Coords otra) {
+		return otra.y > y;
+	}
+
+	public float sqrdistancia(Coords otra) {
+		return (otra.x-x)*(otra.x-x)+(otra.y-y)*(otra.y-y);
+	}
+	
+	
+	
 }

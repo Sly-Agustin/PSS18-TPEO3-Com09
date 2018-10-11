@@ -22,11 +22,10 @@ public class LevelDirector
 	}
 	
 	private LevelDirector() {
-		nivel = new CrearNivel1(5,5,3); //enemigos, obstaculos, enemigos kamikase
-		inicializarNivel();		
+		nivel = new CrearNivel1(5,5,3); //enemigos, obstaculos, enemigos kamikase			
 	}
 	
-	private void inicializarNivel(){
+	public void inicializarNivel(){
 		nivel.crear();
 		nivel.iniciar();
 		nivel.agregarTodo();

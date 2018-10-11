@@ -4,6 +4,7 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
 import Animation.Pictures;
+import Colisionador.CObstaculo;
 import Colisionador.Colisionador;
 import IA.ObsIA;
 
@@ -15,6 +16,8 @@ public class Obstaculo extends Entidad {
 	public Obstaculo(Icon icon) {
 		super(icon);
 		ia = new ObsIA();
+		vida = 20;
+		col = new CObstaculo(); 
 	}
 
 	public void onRefresh() {
@@ -22,19 +25,15 @@ public class Obstaculo extends Entidad {
 	}
 
 	
-	
-	public void serChocado(Entidad e) {
-		
-	}
 
-	@Override
-	public void chocar(Entidad e) {
-		// TODO Auto-generated method stub
-		
-	}
 
 	public void aceptar(Colisionador c) {
 		c.afectarObstaculo(this);
+	}
+
+	@Override
+	public void colisionasteCon(Entidad another) {
+		another.aceptar(col);		
 	}
 	
 }

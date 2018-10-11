@@ -7,6 +7,8 @@ public class Launcher {
 
 	public static void main(String[] x) {
 		Pantalla.getInstance();
-		LevelDirector.instancia().iniciarMotor();
+		LevelDirector director = LevelDirector.instancia();
+		director.inicializarNivel();	
+		director.iniciarMotor();
 	}
 }

@@ -30,7 +30,7 @@ public class DummyIA implements IA{
 		i++;
 		
 		//if(e.getVida()<50)
-			//e.get
+		//e.get
 
 		return Coords.derecha.multK(k*e.getCuerpo().getVelocidadMaxima());
 	}

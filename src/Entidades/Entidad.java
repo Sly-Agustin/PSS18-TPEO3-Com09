@@ -8,8 +8,10 @@ import Colisionador.Colisionador;
 import IA.IA;
 import InterfazGrafica.Mostrador;
 
-public abstract class Entidad {
-
+public abstract class Entidad implements Refrescable {
+//ObjectStructure-Element
+	
+	
 	/*
 	 * Hacer el patron State en eneitdad para generalizar la IA
 	 * meter el onRefresh en entidad
@@ -22,11 +24,11 @@ public abstract class Entidad {
 	protected Mostrador mostrador;
 	protected IA ia;
 	protected int valor;
-	protected int vida;
+	protected float vida;
 	protected Colisionador col;
 	
 	protected Entidad(Icon icon) {
-		cuerpo = new CuerpoRigido();
+		cuerpo = new CuerpoRigido(icon.getIconWidth(),icon.getIconHeight());
 		mostrador = new Mostrador(icon);
 		
 	}
@@ -42,11 +44,11 @@ public abstract class Entidad {
 	public int getValor() {
 		return valor;
 	}
-	public int getVida() {
+	public float getVida() {
 		return vida;
 	}
-	public void setVida(int v) {
-		vida=v;
+	public void setVida(float f) {
+		vida=f;
 	}
 	
 	
@@ -64,9 +66,8 @@ public abstract class Entidad {
 	
 	
 	
-	public abstract void serChocado(Entidad e);
-	
-	public abstract void chocar(Entidad e);
 	
 	public abstract void aceptar(Colisionador c);
+
+	public abstract void colisionasteCon(Entidad another);
 }
