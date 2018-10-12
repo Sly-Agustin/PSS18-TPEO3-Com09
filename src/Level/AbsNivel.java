@@ -9,7 +9,7 @@ import Entidades.*;
 import Entrada.Discreta;
 import InterfazGrafica.Pantalla;
 
-public abstract class AbsNivel {
+public abstract class AbsNivel {//implementar runnable
 	
 	protected Pantalla pantalla;
 	
@@ -19,7 +19,6 @@ public abstract class AbsNivel {
 	private Queue<Entidad> toRemoveEnt;
 	
 	private Discreta eliminaEnemigosConEnter;
-	
 	
 	//--------------------------------------------------------- METODOS
 	

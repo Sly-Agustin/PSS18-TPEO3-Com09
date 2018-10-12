@@ -9,6 +9,7 @@ import Colisionador.Colisionador;
 import IA.KamiIA2;
 
 public class EnemigoKami extends Enemigo{
+//Visitable
 	
 	public static Icon ic2 = new ImageIcon(Pictures.enemigo2);
 	

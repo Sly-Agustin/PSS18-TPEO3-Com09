@@ -2,8 +2,8 @@ package Level;
 
 import InterfazGrafica.Pantalla;
 
-public class LevelDirector
-{
+public class LevelDirector implements Runnable{
+	
 	protected AbsNivel nivel;
 	
 	private static LevelDirector instan;
@@ -28,8 +28,35 @@ public class LevelDirector
 		nivel.agregarTodo();
 	}
 
-	public void iniciarMotor() {
+//	public void iniciarMotor() {
+//		
+//		long time = System.nanoTime();
+//		long time2 = System.nanoTime();
+//		long tiempoDeFrame = 1_000_000_000L/60;
+//		while(true){
+//			time = System.nanoTime(); 
+//			nivel.refrescarTodo();
+//			time2 = System.nanoTime();
+//			esperar(tiempoDeFrame-(time2-time));
+//			Pantalla.getInstance().refresh();
+//		}
+//		
+//	}
+
+	private void esperar(long l) {
+		try{
+			if(l>0)
+			Thread.sleep(l/1000000);
+		}
+		catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("Error en el sleep");
+		}
 		
+	}
+
+	
+	public void run() {
 		long time = System.nanoTime();
 		long time2 = System.nanoTime();
 		long tiempoDeFrame = 1_000_000_000L/60;
@@ -39,17 +66,6 @@ public class LevelDirector
 			time2 = System.nanoTime();
 			esperar(tiempoDeFrame-(time2-time));
 			Pantalla.getInstance().refresh();
-		}
-		
-	}
-
-	private void esperar(long l) {
-		try{
-			if(l>0)
-			Thread.sleep(l/1000000);
-		}
-		catch (Exception e) {
-			// TODO: handle exception
 		}
 		
 	}

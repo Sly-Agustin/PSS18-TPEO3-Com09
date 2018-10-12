@@ -14,6 +14,8 @@ import Level.LevelDirector;
 import TiposDeDatos.Coords;
 
 public class Player extends Entidad {
+//Visitable
+	
 	
 	private static Icon playerIcon = new ImageIcon(Pictures.player);
 	private static Player inst;

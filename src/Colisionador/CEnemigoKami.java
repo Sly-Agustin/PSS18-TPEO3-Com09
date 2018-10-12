@@ -7,6 +7,7 @@ import Entidades.Obstaculo;
 import Entidades.Player;
 
 public class CEnemigoKami extends Colisionador {
+//Visitor concrete
 
 
 	private Enemigo e;

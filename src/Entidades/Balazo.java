@@ -10,7 +10,7 @@ import IA.IABalaPlayer;
 import TiposDeDatos.CuerpoRigido;
 
 public class Balazo extends Entidad{
-//Concrete Element
+//Concrete Element - Visitable
 
 	private float velocidad = 4f;
 	protected int dano; 
