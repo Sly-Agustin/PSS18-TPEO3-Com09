@@ -6,6 +6,7 @@ import javax.swing.ImageIcon;
 import Animation.Pictures;
 import Colisionador.CEnemigoKami;
 import Colisionador.Colisionador;
+import IA.KamiIA1;
 import IA.KamiIA2;
 
 public class EnemigoKami extends Enemigo{

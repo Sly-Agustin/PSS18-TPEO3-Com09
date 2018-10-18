@@ -16,13 +16,13 @@ public class KamiIA1 implements IA {
 	
 	public Coords ADondeVoy(Entidad e) {
 		int x = (int) e.getCuerpo().getPosicion().getX();
-		if(x >= GameData.WindowSize.getWidth()-80){
-			return Coords.abajo;
+		if(x >= GameData.WindowSize.getWidth()-40){
+			return Coords.izquierda;
 		} 
 		if(x <= 0){
-			return Coords.arriba;
+			return Coords.derecha;
 		}
-		if(i >= modu || new Random().nextInt(modu*2) <5){
+		if(i >= modu || new Random().nextInt(modu*2) <3){
 			k *= -1;	
 			i=0;
 		}
@@ -35,8 +35,16 @@ public class KamiIA1 implements IA {
 		if(e.getCuerpo().getPosicion().getY()>600)
 			e.getCuerpo().setPosicion(new Coords(e.getCuerpo().getPosicion().getX(),0));
 		
+		int numeroAleatorio= (int) (Math.random()*10+1);
+		if(numeroAleatorio==5)
+			caer(e);
+		
 		return Coords.arriba.multK(k*e.getCuerpo().getVelocidadMaxima());
 	}	
+	
+	private void caer(Entidad e) {
+		e.getCuerpo().setPosicion(e.getCuerpo().getPosicion().aumentarY(10));
+	}
 	
 
 }

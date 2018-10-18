@@ -2,13 +2,14 @@ package Colisionador;
 
 import Entidades.*;
 
-public class CDisparo extends Colisionador {
+public class CDisparoPlayer extends Colisionador {
 //Visitor Concrete
 	
 	
 	private float damage;
 	
-	public CDisparo(float damage) {
+	
+	public CDisparoPlayer(float damage) {
 		this.damage = damage;
 	}
 

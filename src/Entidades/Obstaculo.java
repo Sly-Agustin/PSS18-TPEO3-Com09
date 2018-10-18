@@ -35,5 +35,11 @@ public class Obstaculo extends Entidad {
 	public void colisionasteCon(Entidad another) {
 		another.aceptar(col);		
 	}
+
+	@Override
+	public void disparar() {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }

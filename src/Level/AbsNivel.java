@@ -2,6 +2,7 @@ package Level;
 
 import java.util.*;
 import java.util.Collection;
+import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.LinkedBlockingQueue;
 
 import Colisionador.*;
@@ -17,6 +18,7 @@ public abstract class AbsNivel {//implementar runnable
 	protected Collection<Entidad> demasEntidades;
 	
 	private Queue<Entidad> toRemoveEnt;
+	private Queue<Entidad> toAddEnt;
 	
 	private Discreta eliminaEnemigosConEnter;
 	
@@ -29,12 +31,13 @@ public abstract class AbsNivel {//implementar runnable
 	
 	
 	protected AbsNivel(){
-		demasEntidades = new LinkedList<>();
+		demasEntidades = new ArrayList<>();
 
 		player = Player.getInstance();
 		pantalla = Pantalla.getInstance();
 		
 		toRemoveEnt = new LinkedBlockingQueue<>();
+		toAddEnt= new LinkedBlockingQueue<>();
 		
 		eliminaEnemigosConEnter = new Discreta(this::eliminaEnemies, Discreta.enter);	
 	}
@@ -67,17 +70,21 @@ public abstract class AbsNivel {//implementar runnable
 			demasEntidades.remove(e);
 			Pantalla.getInstance().removeMostrable(e.getMostrable());
 		}
+		
+		while(!toAddEnt.isEmpty()){
+			Entidad e = toAddEnt.remove();
+			demasEntidades.add(e);
+		}	
 	}	
 	
-	
-	
+		
 	public final void addEntity(Entidad e) {
-		demasEntidades.add(e);
+		toAddEnt.add(e);
 		Pantalla.getInstance().addMostrable(e.getMostrable());
 	}
 	
 	public final void removeEntity(Entidad e) {
-		demasEntidades.remove(e);		
+		toRemoveEnt.remove(e);		
 		Pantalla.getInstance().removeMostrable(e.getMostrable()); 
 	}
 	

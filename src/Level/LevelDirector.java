@@ -19,7 +19,7 @@ public class LevelDirector implements Runnable{
 	}
 	
 	private LevelDirector() {
-		nivel = new CrearNivel1(5,5,3); //enemigos, obstaculos, enemigos kamikase			
+		nivel = new CrearNivel1(5,5,5,3); //enemigos, obstaculos, enemigos kamikaze			
 	}
 	
 	public void inicializarNivel(){

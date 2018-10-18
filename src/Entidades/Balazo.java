@@ -4,43 +4,35 @@ package Entidades;
 import javax.swing.Icon;
 
 import Colisionador.*;
+import IA.IA;
+import IA.IABalaEnemigo;
 import IA.IABalaPlayer;
 //import InterfazGrafica.Mostrador;
 //import TiposDeDatos.Coords;
 import TiposDeDatos.CuerpoRigido;
 
-public class Balazo extends Entidad{
-//Concrete Element - Visitable
-
-	private float velocidad = 4f;
-	protected int dano; 
-	protected CDisparo col;
+public abstract class Balazo extends Entidad{
 
 
-	protected Balazo(Icon icon) {
+	protected float velocidad;
+	protected int dano;
+	protected IA ia;
+	
+	
+	public Balazo(Icon icon) {
 		super(icon);
-		ia = new IABalaPlayer();
-		dano=30;
-		vida = 200;
-		col = new CDisparo(dano);
 	}
 
-	public void onRefresh() {
-		cuerpo.mover(ia.ADondeVoy(this).multK(velocidad));
-		vida--;
-	}
+	public abstract void onRefresh();
 
-	public int getDano() {
-		return dano;
-	}
+	public abstract int getDano();
 		
-	public void aceptar(Colisionador c) {
-		c.afectarDisparo(this);
-	}
+	public abstract void aceptar(Colisionador c);
 
 	@Override
-	public void colisionasteCon(Entidad another) {
-		another.aceptar(col);	
-	}
+	public abstract void colisionasteCon(Entidad another) ;
+
+	@Override
+	public abstract void disparar();
 
 }

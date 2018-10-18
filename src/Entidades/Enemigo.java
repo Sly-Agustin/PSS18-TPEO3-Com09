@@ -4,8 +4,11 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import Animation.Pictures;
 import Colisionador.CEnemigo;
+import Colisionador.CEnemigoArmado;
 import Colisionador.Colisionador;
+import IA.ArmadoIA;
 import IA.DummyIA;
+import IA.PseudoIA;
 
 public class Enemigo extends Entidad {
 //Concrete Element
@@ -38,6 +41,12 @@ public class Enemigo extends Entidad {
 	@Override
 	public void colisionasteCon(Entidad another) {
 		another.aceptar(col);	
+	}
+
+
+	@Override
+	public void disparar() {
+		
 	}
 	
 }

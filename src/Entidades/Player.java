@@ -39,9 +39,9 @@ public class Player extends Entidad {
 		col  = new CJugador();
 	}
 	
-	private void disparar() {
+	public void disparar() {
 		
-		Balazo b = new Balazo(IconsManager.balazo);
+		Balazo b = new BalazoPlayer(IconsManager.balazo);
 		b.cuerpo.setPosicion(cuerpo.getPosicion().sumar(new Coords(playerIcon.getIconWidth()/2- b.getMostrable().getIcon().getIconWidth()/2,-40)));
 		AbsNivel n = LevelDirector.instancia().currentLevel();
 		n.addEntity(b);
