@@ -15,6 +15,7 @@ public class CDisparoEnemigo extends Colisionador{
 
 	public void afectarJugador(Player p) {
 		p.setVida(p.getVida()-5);
+		p.manejarVida();
 		System.out.println("Vida: "+p.getVida());
 	}
 	public void afectarEnemigo(Enemigo e) {

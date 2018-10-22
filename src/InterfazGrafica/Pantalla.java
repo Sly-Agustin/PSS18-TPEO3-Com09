@@ -1,6 +1,7 @@
 package InterfazGrafica;
 
 import java.awt.Container;
+import java.awt.Dimension;
 import java.awt.event.KeyListener;
 
 import Datos.*;

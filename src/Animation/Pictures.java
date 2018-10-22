@@ -13,4 +13,10 @@ public class Pictures {
 	public static URL balazo = Pictures.class.getResource("fire.gif");
 	public static URL naveArmada= Pictures.class.getResource("NaveArmada.png");
 	public static URL fireEnemigo= Pictures.class.getResource("fireEnemigo.gif");
+	public static URL vida1= Pictures.class.getResource("Barra de vida 1.png");
+	public static URL vida2= Pictures.class.getResource("Barra de vida 2.png");
+	public static URL vida3= Pictures.class.getResource("Barra de vida 3.png");
+	public static URL vida4= Pictures.class.getResource("Barra de vida 4.png");
+	public static URL vida5= Pictures.class.getResource("Barra de vida 5.png");
+	public static URL vida6= Pictures.class.getResource("Barra de vida 6.png");
 }

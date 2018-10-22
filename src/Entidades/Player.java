@@ -9,6 +9,8 @@ import Colisionador.Colisionador;
 import Datos.IconsManager;
 import Entrada.Discreta;
 import IA.PseudoIA;
+import InterfazGrafica.Mostrador;
+import InterfazGrafica.Pantalla;
 import Level.AbsNivel;
 import Level.LevelDirector;
 import TiposDeDatos.Coords;
@@ -49,7 +51,23 @@ public class Player extends Entidad {
 	}
 	
 	public void onRefresh() {
-		cuerpo.mover(ia.ADondeVoy(this));		
+		cuerpo.mover(ia.ADondeVoy(this));
+	/*	if(puntaje >83.4) 
+			Pantalla.getInstance().addMostrable(new Mostrador(IconsManager.v1));
+		else 
+			if(puntaje > 66.8)
+				Pantalla.getInstance().addMostrable(new Mostrador(IconsManager.v2));
+			else 
+				if(puntaje >50.2)
+					Pantalla.getInstance().addMostrable(new Mostrador(IconsManager.v3));
+				else
+					if(puntaje > 33.6)
+						Pantalla.getInstance().addMostrable(new Mostrador(IconsManager.v4));
+					else
+						if(puntaje > 17)
+							Pantalla.getInstance().addMostrable(new Mostrador(IconsManager.v5));
+						else Pantalla.getInstance().addMostrable(new Mostrador(IconsManager.v6));*/
+		
 	}
 	
 	public void sumarPuntaje(Entidad e) {
@@ -69,6 +87,31 @@ public class Player extends Entidad {
 	@Override
 	public void colisionasteCon(Entidad another) {
 		another.aceptar(col);		
+	}
+	
+	public void manejarVida() {
+		if(puntaje >83.4) 
+			acomodar(IconsManager.v1);
+		else 
+			if(puntaje > 66.8)
+				acomodar(IconsManager.v2);
+			else 
+				if(puntaje >50.2)
+					acomodar(IconsManager.v3);
+				else
+					if(puntaje > 33.6)
+						acomodar(IconsManager.v4);
+					else
+						if(puntaje > 17)
+							acomodar(IconsManager.v5);
+						else acomodar(IconsManager.v6);
+	}
+	
+	private void acomodar(Icon icon) {
+		Mostrador vida= new Mostrador(icon);
+		vida.setBounds(700, 500, 100, 100);
+		Pantalla.getInstance().addMostrable(vida);
+		Pantalla.getInstance().refresh();
 	}
 
 }

@@ -14,13 +14,16 @@ public class CDisparoPlayer extends Colisionador {
 	}
 
 	public void afectarJugador(Player p) {
-		//el disparo no afecta al jugador
+		//El disparo player no afecta al jugador
 	}
 	public void afectarEnemigo(Enemigo e) {
 		e.setVida(e.getVida()-damage);
 	}
 	public void afectarEnemigoKami(EnemigoKami ek) {
 		ek.setVida(ek.getVida()-damage);
+	}
+	public void afectarEnemigoArmado(EnemigoArmado ea) {
+		ea.setVida(ea.getVida()-damage);
 	}
 	public void afectarObstaculo(Obstaculo o) {
 		o.setVida(o.getVida()-damage);

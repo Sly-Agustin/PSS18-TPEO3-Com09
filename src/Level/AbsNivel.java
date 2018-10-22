@@ -5,9 +5,15 @@ import java.util.Collection;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.LinkedBlockingQueue;
 
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+
+import Animation.Pictures;
 import Colisionador.*;
+import Datos.IconsManager;
 import Entidades.*;
 import Entrada.Discreta;
+import InterfazGrafica.Mostrador;
 import InterfazGrafica.Pantalla;
 
 public abstract class AbsNivel {//implementar runnable
@@ -40,6 +46,7 @@ public abstract class AbsNivel {//implementar runnable
 		toAddEnt= new LinkedBlockingQueue<>();
 		
 		eliminaEnemigosConEnter = new Discreta(this::eliminaEnemies, Discreta.enter);	
+	
 	}
 	
 	private void eliminaEnemies(){
@@ -49,13 +56,15 @@ public abstract class AbsNivel {//implementar runnable
 	
 	public void agregarTodo() {
 		pantalla.addMostrable(player.getMostrable());
+		Mostrador vida= new Mostrador(IconsManager.v1);
+		vida.setBounds(700, 500, 100, 100);
+		pantalla.addMostrable(vida);
 		//enemies.forEach(e -> pantalla.addMostrable(e.getMostrable()));
 		//enemiesK.forEach(e->pantalla.addMostrable(e.getMostrable()));
 		//obstacles.forEach(e -> pantalla.addMostrable(e.getMostrable()));
 		demasEntidades.forEach(e -> pantalla.addMostrable(e.getMostrable()));		
 		demasEntidades.forEach(ElConocedor.instancia()::add);
-		ElConocedor.instancia().add(player);		
-		
+		ElConocedor.instancia().add(player);	
 		refrescarTodo();
 	}
 

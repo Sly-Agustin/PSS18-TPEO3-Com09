@@ -35,7 +35,7 @@ public class CrearNivel1 extends AbsNivel {
 		for(int i=1; i<=cantEnemsK;i++) {
 			EnemigoKami enemK = new EnemigoKami(EnemigoKami.ic2);
 			demasEntidades.add(enemK);
-			Coords c = new Coords(ancho*i/(cantEnemsK+1),150);
+			Coords c = new Coords(ancho*i/(cantEnemsK+1),350);
 			enemK.getCuerpo().setPosicion(c);
 		}
 		//ENEMIGOS ARMADOS

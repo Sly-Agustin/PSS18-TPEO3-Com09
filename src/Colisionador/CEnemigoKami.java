@@ -14,12 +14,13 @@ public class CEnemigoKami extends Colisionador {
 
 	private float damage;
 
-	public CEnemigoKami(float damage) {
+	public CEnemigoKami(float damage) { 
 		this.damage = damage;
 	}
 
 	public void afectarJugador(Player p) {
 		p.setVida(p.getVida()-damage);
+		System.out.println("Kami vs Player");
 		/**
 		 * Al colisionar al jugador se le descuenta de la vida que tenga la vida del enemigo
 		 * dividido por el puntaje que tenga al morir.
@@ -28,7 +29,6 @@ public class CEnemigoKami extends Colisionador {
 	public void afectarEnemigo(Enemigo e) {}
 	public void afectarObstaculo(Obstaculo o) {}
 	public void afectarEnemigoKami(EnemigoKami ek) {}
-	@Override
 	public void afectarDisparo(Balazo balazo) {
 		balazo.setVida(-2);
 	}

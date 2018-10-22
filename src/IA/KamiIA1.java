@@ -35,7 +35,7 @@ public class KamiIA1 implements IA {
 		if(e.getCuerpo().getPosicion().getY()>600)
 			e.getCuerpo().setPosicion(new Coords(e.getCuerpo().getPosicion().getX(),0));
 		
-		int numeroAleatorio= (int) (Math.random()*10+1);
+		int numeroAleatorio= (int) (Math.random()*5+1);
 		if(numeroAleatorio==5)
 			caer(e);
 		
