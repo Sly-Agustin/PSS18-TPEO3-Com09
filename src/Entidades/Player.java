@@ -88,7 +88,7 @@ public class Player extends Entidad {
 	public void colisionasteCon(Entidad another) {
 		another.aceptar(col);		
 	}
-	
+/*	
 	public void manejarVida() {
 		if(puntaje >83.4) 
 			acomodar(IconsManager.v1);
@@ -112,6 +112,6 @@ public class Player extends Entidad {
 		vida.setBounds(700, 500, 100, 100);
 		Pantalla.getInstance().addMostrable(vida);
 		Pantalla.getInstance().refresh();
-	}
+	}*/
 
 }

@@ -19,4 +19,8 @@ public class Pictures {
 	public static URL vida4= Pictures.class.getResource("Barra de vida 4.png");
 	public static URL vida5= Pictures.class.getResource("Barra de vida 5.png");
 	public static URL vida6= Pictures.class.getResource("Barra de vida 6.png");
+	public static URL sacaDanoPU= Pictures.class.getResource("PowerUpSacaDano.png");
+	public static URL sumaDanoPU= Pictures.class.getResource("PowerUpSumaDano.png");
+	public static URL sacaVidaPU= Pictures.class.getResource("PowerUpSacaVida.png");
+	public static URL sumaVidaPU= Pictures.class.getResource("PowerUpSumaVida.png");
 }

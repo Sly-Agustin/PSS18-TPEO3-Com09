@@ -21,12 +21,14 @@ public abstract class AbsNivel {//implementar runnable
 	protected Pantalla pantalla;
 	
 	protected Player player;
+	protected Mostrador vida;
 	protected Collection<Entidad> demasEntidades;
 	
 	private Queue<Entidad> toRemoveEnt;
 	private Queue<Entidad> toAddEnt;
 	
 	private Discreta eliminaEnemigosConEnter;
+	
 	
 	//--------------------------------------------------------- METODOS
 	
@@ -41,6 +43,8 @@ public abstract class AbsNivel {//implementar runnable
 
 		player = Player.getInstance();
 		pantalla = Pantalla.getInstance();
+		vida= new Mostrador(IconsManager.v1);
+		vida.setBounds(700, 500, 100, 100);
 		
 		toRemoveEnt = new LinkedBlockingQueue<>();
 		toAddEnt= new LinkedBlockingQueue<>();
@@ -56,9 +60,6 @@ public abstract class AbsNivel {//implementar runnable
 	
 	public void agregarTodo() {
 		pantalla.addMostrable(player.getMostrable());
-		Mostrador vida= new Mostrador(IconsManager.v1);
-		vida.setBounds(700, 500, 100, 100);
-		pantalla.addMostrable(vida);
 		//enemies.forEach(e -> pantalla.addMostrable(e.getMostrable()));
 		//enemiesK.forEach(e->pantalla.addMostrable(e.getMostrable()));
 		//obstacles.forEach(e -> pantalla.addMostrable(e.getMostrable()));
@@ -84,6 +85,36 @@ public abstract class AbsNivel {//implementar runnable
 			Entidad e = toAddEnt.remove();
 			demasEntidades.add(e);
 		}	
+		
+		if(player.getVida() >83.4) {
+			vida.setIcon(IconsManager.v1);
+			Pantalla.getInstance().addMostrable(vida);
+		}
+		else 
+			if(player.getVida() > 66.8) {
+				vida.setIcon(IconsManager.v2);
+				Pantalla.getInstance().addMostrable(vida);
+			}
+			else 
+				if(player.getVida() >50.2){
+					vida.setIcon(IconsManager.v3);
+					Pantalla.getInstance().addMostrable(vida);
+				}
+				else
+					if(player.getVida() > 33.6){
+						vida.setIcon(IconsManager.v4);
+						Pantalla.getInstance().addMostrable(vida);
+					}
+					else
+						if(player.getVida() > 17){
+							vida.setIcon(IconsManager.v5);
+							Pantalla.getInstance().addMostrable(vida);
+						}
+						else {
+							vida.setIcon(IconsManager.v6);
+							Pantalla.getInstance().addMostrable(vida);
+						}
+		
 	}	
 	
 		
