@@ -16,7 +16,7 @@ public class Obstaculo extends Entidad {
 	public Obstaculo(Icon icon) {
 		super(icon);
 		ia = new ObsIA();
-		vida = 20;
+		vida = 50;
 		col = new CObstaculo(); 
 	}
 

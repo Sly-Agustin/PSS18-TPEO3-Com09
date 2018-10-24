@@ -5,6 +5,8 @@ import java.net.URL;
 public class Pictures {
 	
 	public static URL fondo = Pictures.class.getResource("fondo.png");
+	public static URL fondoW= Pictures.class.getResource("PantallaWin.png");
+	public static URL fondoL= Pictures.class.getResource("PantallaLose.png");
 	public static URL enemigo1 = Pictures.class.getResource("Enemigo1.png");
 	public static URL enemigo2 = Pictures.class.getResource("Enemigo2.png");
 	public static URL obstaculos = Pictures.class.getResource("Obstaculo.png");
@@ -23,4 +25,5 @@ public class Pictures {
 	public static URL sumaDanoPU= Pictures.class.getResource("PowerUpSumaDano.png");
 	public static URL sacaVidaPU= Pictures.class.getResource("PowerUpSacaVida.png");
 	public static URL sumaVidaPU= Pictures.class.getResource("PowerUpSumaVida.png");
+	
 }

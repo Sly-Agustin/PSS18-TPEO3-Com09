@@ -11,6 +11,8 @@ import Datos.GameData;
 import Datos.IconsManager;
 import Entrada.Discreta;
 import IA.ArmadoIA;
+import IA.DummyIA;
+import IA.KamiIA2;
 import Level.AbsNivel;
 import Level.LevelDirector;
 import TiposDeDatos.Coords;

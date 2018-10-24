@@ -3,7 +3,7 @@ package Entrada;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-import InterfazGrafica.Pantalla;
+import InterfazGrafica.PantallaJuego;
 
 public class Teclado implements KeyListener
 {
@@ -15,7 +15,7 @@ public class Teclado implements KeyListener
 	public Teclado() {
 		left = false;
 		right=false;
-		Pantalla.getInstance().addTeclado(this);
+		PantallaJuego.getInstance().addTeclado(this);
 	}
 	/*
 	public void destroy()

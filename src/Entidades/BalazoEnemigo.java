@@ -21,7 +21,7 @@ public class BalazoEnemigo extends Balazo{
 	public BalazoEnemigo(Icon icon) {
 		super(icon);
 		ia = new IABalaEnemigo();
-		dano= 30;
+		dano= 5;
 		vida = 200;
 		col = new CDisparoEnemigo(dano);
 	}
@@ -33,6 +33,10 @@ public class BalazoEnemigo extends Balazo{
 
 	public int getDano() {
 		return dano;
+	}
+	
+	public void setDano(int i) {
+		dano=i;
 	}
 		
 	public void aceptar(Colisionador c) {

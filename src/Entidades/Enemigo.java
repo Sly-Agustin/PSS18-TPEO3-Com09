@@ -27,7 +27,7 @@ public class Enemigo extends Entidad {
 
 	
 	public void onRefresh() {
-		cuerpo.mover(ia.ADondeVoy(this));		
+		cuerpo.mover(ia.ADondeVoy(this));
 	}
 	
 	public void setVida(int v) {

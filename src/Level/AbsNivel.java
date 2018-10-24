@@ -13,8 +13,7 @@ import Colisionador.*;
 import Datos.IconsManager;
 import Entidades.*;
 import Entrada.Discreta;
-import InterfazGrafica.Mostrador;
-import InterfazGrafica.Pantalla;
+import InterfazGrafica.*;
 
 public abstract class AbsNivel {//implementar runnable
 	
@@ -29,6 +28,8 @@ public abstract class AbsNivel {//implementar runnable
 	
 	private Discreta eliminaEnemigosConEnter;
 	
+
+	
 	
 	//--------------------------------------------------------- METODOS
 	
@@ -42,18 +43,18 @@ public abstract class AbsNivel {//implementar runnable
 		demasEntidades = new ArrayList<>();
 
 		player = Player.getInstance();
-		pantalla = Pantalla.getInstance();
+		pantalla = PantallaJuego.getInstance();
 		vida= new Mostrador(IconsManager.v1);
 		vida.setBounds(700, 500, 100, 100);
 		
-		toRemoveEnt = new LinkedBlockingQueue<>();
-		toAddEnt= new LinkedBlockingQueue<>();
+		toRemoveEnt = new LinkedList<>();
+		toAddEnt= new LinkedList<>();
 		
-		eliminaEnemigosConEnter = new Discreta(this::eliminaEnemies, Discreta.enter);	
+		eliminaEnemigosConEnter = new Discreta(this::eliminaTodosLosEnemies, Discreta.enter);	
 	
 	}
 	
-	private void eliminaEnemies(){
+	public void eliminaTodosLosEnemies(){
 		toRemoveEnt.addAll(demasEntidades);
 	}
 	
@@ -78,7 +79,7 @@ public abstract class AbsNivel {//implementar runnable
 			Entidad e = toRemoveEnt.remove();
 			player.sumarPuntaje(e);
 			demasEntidades.remove(e);
-			Pantalla.getInstance().removeMostrable(e.getMostrable());
+			PantallaJuego.getInstance().removeMostrable(e.getMostrable());
 		}
 		
 		while(!toAddEnt.isEmpty()){
@@ -86,46 +87,60 @@ public abstract class AbsNivel {//implementar runnable
 			demasEntidades.add(e);
 		}	
 		
+		
+	}	
+	
+	protected void controlarVida() {
 		if(player.getVida() >83.4) {
 			vida.setIcon(IconsManager.v1);
-			Pantalla.getInstance().addMostrable(vida);
+			PantallaJuego.getInstance().addMostrable(vida);
 		}
 		else 
 			if(player.getVida() > 66.8) {
 				vida.setIcon(IconsManager.v2);
-				Pantalla.getInstance().addMostrable(vida);
+				PantallaJuego.getInstance().addMostrable(vida);
 			}
 			else 
 				if(player.getVida() >50.2){
 					vida.setIcon(IconsManager.v3);
-					Pantalla.getInstance().addMostrable(vida);
+					PantallaJuego.getInstance().addMostrable(vida);
 				}
 				else
 					if(player.getVida() > 33.6){
 						vida.setIcon(IconsManager.v4);
-						Pantalla.getInstance().addMostrable(vida);
+						PantallaJuego.getInstance().addMostrable(vida);
 					}
 					else
 						if(player.getVida() > 17){
 							vida.setIcon(IconsManager.v5);
-							Pantalla.getInstance().addMostrable(vida);
+							PantallaJuego.getInstance().addMostrable(vida);
 						}
 						else {
 							vida.setIcon(IconsManager.v6);
-							Pantalla.getInstance().addMostrable(vida);
+							PantallaJuego.getInstance().addMostrable(vida);
 						}
-		
-	}	
+	}
 	
+	public abstract int getNumeroNivel();
+	
+	public Collection<Entidad> getEntidades(){
+		return demasEntidades;
+	}
+	
+	public int getCantidadEntidades() {
+		return demasEntidades.size();
+	}
+
 		
 	public final void addEntity(Entidad e) {
 		toAddEnt.add(e);
-		Pantalla.getInstance().addMostrable(e.getMostrable());
+		PantallaJuego.getInstance().addMostrable(e.getMostrable());
 	}
 	
 	public final void removeEntity(Entidad e) {
 		toRemoveEnt.remove(e);		
-		Pantalla.getInstance().removeMostrable(e.getMostrable()); 
+		PantallaJuego.getInstance().removeMostrable(e.getMostrable()); 
+		demasEntidades.remove(e);
 	}
 	
 	

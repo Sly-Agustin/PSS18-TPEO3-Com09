@@ -1,35 +1,50 @@
 package Level;
 
 import Datos.GameData;
+import Datos.IconsManager;
 import Entidades.Enemigo;
 import Entidades.EnemigoArmado;
 import Entidades.EnemigoKami;
 import Entidades.Obstaculo;
 import Entrada.Discreta;
+import InterfazGrafica.*;
 import TiposDeDatos.Coords;
 
-public class CrearNivel1 extends AbsNivel {
+public class CrearNivel extends AbsNivel {
 
 	private int cantEnems;
 	private int cantEnemsK;
 	private int cantObs;
 	private int cantEnemsA;
+	private int numeroNivel;
 
-	public CrearNivel1(int cantidadDeEnemigos, int cantidadDeEnemigosArmados, int cantidadDeObs, int cantidadDeEnemigosK) {
-		cantEnems = cantidadDeEnemigos;
-		cantEnemsK=cantidadDeEnemigos;
-		cantObs = cantidadDeObs;
-		cantEnemsA=cantidadDeEnemigosArmados;
+	public CrearNivel(int i) {
+		if(i<=5) {
+			numeroNivel=i;
+			cantEnems = 3*i;
+			cantEnemsK=3*i;
+			cantObs = 2*i;
+			cantEnemsA= 2*i;
+		}	
+		super.controlarVida();
 	}
 
 	public void crear() {
 		int ancho = GameData.WindowSize.width;
 		//ENEMIGOS 1
+		int cantXNivel= cantEnems/3;
+		int n=0;
+		int nivel=1;
 		for(int i=1; i<=cantEnems ; i++) {
 			Enemigo enem = new Enemigo(Enemigo.ic1);
 			demasEntidades.add(enem);
-			Coords c = new Coords(ancho*i/(cantEnems+1),100);
+			Coords c = new Coords(ancho*i/(cantEnems+1),100*nivel);
 			enem.getCuerpo().setPosicion(c);
+			n++;
+			if(n==cantXNivel) {
+				n=0;
+				nivel++;
+			}
 		}
 		//ENEMIGOS KAMI
 		for(int i=1; i<=cantEnemsK;i++) {
@@ -39,10 +54,10 @@ public class CrearNivel1 extends AbsNivel {
 			enemK.getCuerpo().setPosicion(c);
 		}
 		//ENEMIGOS ARMADOS
-		for(int i=1; i<cantEnemsA; i++) {
+		for(int i=1; i<=cantEnemsA; i++) {
 			EnemigoArmado enemA= new EnemigoArmado(EnemigoArmado.armadoIcon);
 			demasEntidades.add(enemA);
-			Coords c= new Coords(ancho*i/(cantEnems+1),50);
+			Coords c= new Coords(ancho*i*2/(cantEnems+1),50);
 			enemA.getCuerpo().setPosicion(c);
 		}
 		//OBSTACULOS
@@ -53,7 +68,12 @@ public class CrearNivel1 extends AbsNivel {
 			obs.getCuerpo().setPosicion(c);
 		}
 		
-		player.getCuerpo().setPosicion(new Coords(400,500));		
+		player.getCuerpo().setPosicion(new Coords(400,500));	
+		super.controlarVida();
+	}
+	
+	public int getNumeroNivel() {
+		return numeroNivel;
 	}
 
 	
@@ -64,8 +84,21 @@ public class CrearNivel1 extends AbsNivel {
 
 	@Override
 	public boolean gane() {
-		// TODO Auto-generated method stub
-		return false;
+		boolean gane=false;
+		if(numeroNivel==5 && demasEntidades.isEmpty()) {
+			pantalla= PantallaW.getInstance();
+			gane=true;
+		}
+		return gane;
+	}
+	
+	public boolean perdi() {
+		boolean perdi=false;
+		if(player.getVida()<=0) {
+			pantalla= PantallaL.getInstance();
+			perdi=true;
+		}
+		return true;
 	}
 
 	@Override
@@ -75,7 +108,11 @@ public class CrearNivel1 extends AbsNivel {
 	}
 	
 	public void refrescarTodo() {
+		super.controlarVida();
+		gane();
+		perdi();
 		super.refrescarTodo();
 	}
+	
 
 }

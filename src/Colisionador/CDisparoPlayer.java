@@ -1,16 +1,16 @@
 package Colisionador;
 
-import Entidades.*;
+import Entidades.*;/*
 import Level.AbsNivel;
 import Level.LevelDirector;
-import TiposDeDatos.Coords;
+import TiposDeDatos.Coords;*/
 
 public class CDisparoPlayer extends Colisionador {
 //Visitor Concrete
 	
 	
 	private float damage;
-	private PowerUp powerUp;
+	//private PowerUp powerUp;
 	
 	public CDisparoPlayer(float damage) {
 		this.damage = damage;
@@ -20,7 +20,7 @@ public class CDisparoPlayer extends Colisionador {
 		//El disparo player no afecta al jugador
 	}
 	public void afectarEnemigo(Enemigo e) {
-		e.setVida(e.getVida()-damage);
+		e.setVida(e.getVida()-damage);			
 	}
 	public void afectarEnemigoKami(EnemigoKami ek) {
 		ek.setVida(ek.getVida()-damage);

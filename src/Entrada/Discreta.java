@@ -3,7 +3,7 @@ package Entrada;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-import InterfazGrafica.Pantalla;
+import InterfazGrafica.PantallaJuego;
 
 public class Discreta implements KeyListener {
 	
@@ -17,7 +17,7 @@ public class Discreta implements KeyListener {
 	public Discreta(Runnable funcion, int keycode) {
 		this.mifuncion = funcion;
 		this.keycode = keycode;
-		Pantalla.getInstance().addTeclado(this);
+		PantallaJuego.getInstance().addTeclado(this);
 	}
 
 	public void keyPressed(KeyEvent e) {
