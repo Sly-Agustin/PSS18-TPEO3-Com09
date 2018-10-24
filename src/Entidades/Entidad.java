@@ -20,7 +20,7 @@ public abstract class Entidad implements Refrescable {
 	 * que cada entidad cambie de IA sin que nadie se entere, solo ellos.
 	 */
 	
-	protected CuerpoRigido cuerpo;
+	public CuerpoRigido cuerpo;
 	protected Mostrador mostrador;
 	protected IA ia;
 	protected int valor;
@@ -65,4 +65,6 @@ public abstract class Entidad implements Refrescable {
 	public abstract void aceptar(Colisionador c);
 
 	public abstract void colisionasteCon(Entidad another);
+	
+	public abstract void disparar();
 }

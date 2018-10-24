@@ -1,6 +1,6 @@
 package Level;
 
-import InterfazGrafica.Pantalla;
+import InterfazGrafica.PantallaJuego;
 
 public class LevelDirector implements Runnable{
 	
@@ -9,7 +9,7 @@ public class LevelDirector implements Runnable{
 	private static LevelDirector instan;
 	public static LevelDirector instancia(){
 		if(instan==null){
-			instan = new LevelDirector();
+			instan = new LevelDirector(1);
 		}
 		return instan;
 	}
@@ -18,8 +18,8 @@ public class LevelDirector implements Runnable{
 		return nivel;
 	}
 	
-	private LevelDirector() {
-		nivel = new CrearNivel1(5,5,3); //enemigos, obstaculos, enemigos kamikase			
+	private LevelDirector(int i) {
+		nivel= new CrearNivel(i);
 	}
 	
 	public void inicializarNivel(){
@@ -27,21 +27,15 @@ public class LevelDirector implements Runnable{
 		nivel.iniciar();
 		nivel.agregarTodo();
 	}
-
-//	public void iniciarMotor() {
-//		
-//		long time = System.nanoTime();
-//		long time2 = System.nanoTime();
-//		long tiempoDeFrame = 1_000_000_000L/60;
-//		while(true){
-//			time = System.nanoTime(); 
-//			nivel.refrescarTodo();
-//			time2 = System.nanoTime();
-//			esperar(tiempoDeFrame-(time2-time));
-//			Pantalla.getInstance().refresh();
-//		}
-//		
-//	}
+	
+	public void cambiarNivel() {
+		if(nivel.getCantidadEntidades()==0) {
+			nivel.eliminaTodosLosEnemies();
+			nivel= new CrearNivel(nivel.getNumeroNivel()+1);			
+			inicializarNivel();
+		}
+	}
+	
 
 	private void esperar(long l) {
 		try{
@@ -65,9 +59,9 @@ public class LevelDirector implements Runnable{
 			nivel.refrescarTodo();
 			time2 = System.nanoTime();
 			esperar(tiempoDeFrame-(time2-time));
-			Pantalla.getInstance().refresh();
-		}
-		
+			PantallaJuego.getInstance().refresh();
+			cambiarNivel();
+		}	
 	}
 
 

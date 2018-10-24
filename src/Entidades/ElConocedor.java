@@ -25,7 +25,7 @@ public class ElConocedor implements Refrescable{
 	
 	private ElConocedor() {
 		entidades = new HashSet<>();
-		removeQueue = new LinkedBlockingDeque<>();
+		removeQueue = new LinkedList<>();
 	}	
 	
 	public void add(Entidad entidad) {
@@ -37,12 +37,15 @@ public class ElConocedor implements Refrescable{
 //			removeQueue.add(p);
 //			LevelDirector.instancia().currentLevel().removeEntity(p);
 //		}
+		
 		for(Entidad e : entidades) {
 			
 			if(e.getVida()<=0) {
 				removeQueue.add(e);
 				LevelDirector.instancia().currentLevel().removeEntity(e);
 			}
+			
+			
 			
 			for(Entidad e1:entidades) {
 				if(e!=e1 && e.getCuerpo().CollidesWith(e1.getCuerpo())) {

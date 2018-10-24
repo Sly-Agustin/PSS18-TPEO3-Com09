@@ -16,7 +16,7 @@ public class Obstaculo extends Entidad {
 	public Obstaculo(Icon icon) {
 		super(icon);
 		ia = new ObsIA();
-		vida = 20;
+		vida = 50;
 		col = new CObstaculo(); 
 	}
 
@@ -34,6 +34,12 @@ public class Obstaculo extends Entidad {
 	@Override
 	public void colisionasteCon(Entidad another) {
 		another.aceptar(col);		
+	}
+
+	@Override
+	public void disparar() {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }
