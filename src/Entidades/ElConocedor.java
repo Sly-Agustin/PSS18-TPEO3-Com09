@@ -54,7 +54,4 @@ public class ElConocedor implements Refrescable{
 			entidades.remove(removeQueue.remove());
 		}
 	}
-	
-	
-	
 }
