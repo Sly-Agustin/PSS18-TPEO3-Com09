@@ -18,10 +18,8 @@ public abstract class PowerUp extends Entidad{
 		
 	public abstract void aceptar(Colisionador c);
 
-	@Override
 	public abstract void colisionasteCon(Entidad another) ;
 
-	@Override
 	public abstract void disparar();
 
 }

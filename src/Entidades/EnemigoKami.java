@@ -22,7 +22,7 @@ public class EnemigoKami extends Enemigo{
 		super(icon);
 		ia = new KamiIA2();
 		valor=15;
-		dano=1000;
+		dano=50;
 		vida = 200;
 		col = new CEnemigoKami(dano);
 	}
@@ -39,8 +39,7 @@ public class EnemigoKami extends Enemigo{
 	public void aceptar(Colisionador c) {
 		c.afectarEnemigoKami(this);
 	}
-
-	@Override
+	
 	public void colisionasteCon(Entidad another) {
 		another.aceptar(col);	
 	}

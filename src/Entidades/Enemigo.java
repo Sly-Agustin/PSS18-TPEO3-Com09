@@ -3,19 +3,15 @@ package Entidades;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import Animation.Pictures;
-import Colisionador.CEnemigo;
-import Colisionador.CEnemigoArmado;
-import Colisionador.Colisionador;
-import IA.ArmadoIA;
+import Colisionador.*;
 import IA.DummyIA;
-import IA.PseudoIA;
+
 
 public class Enemigo extends Entidad {
 //Concrete Element
 
 	
 	public static Icon ic1 = new ImageIcon(Pictures.enemigo1);
-
 	
 	public Enemigo(Icon icon) {
 		super(icon);
@@ -42,7 +38,6 @@ public class Enemigo extends Entidad {
 	public void colisionasteCon(Entidad another) {
 		another.aceptar(col);	
 	}
-
 
 	@Override
 	public void disparar() {

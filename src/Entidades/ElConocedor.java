@@ -17,8 +17,6 @@ public class ElConocedor implements Refrescable{
 		return instance;
 	}
 
-	
-//	private Player p;
 	private Collection<Entidad> entidades;
 	private Queue<Entidad> removeQueue; //TODO HACER OTRO PARA ADD
 	
@@ -32,21 +30,12 @@ public class ElConocedor implements Refrescable{
 		entidades.add(entidad);
 	}
 	
-	public void refresh(){		
-//		if(p.getInstance().getVida()<=0) {
-//			removeQueue.add(p);
-//			LevelDirector.instancia().currentLevel().removeEntity(p);
-//		}
-		
+	public void refresh(){
 		for(Entidad e : entidades) {
-			
 			if(e.getVida()<=0) {
 				removeQueue.add(e);
 				LevelDirector.instancia().currentLevel().removeEntity(e);
 			}
-			
-			
-			
 			for(Entidad e1:entidades) {
 				if(e!=e1 && e.getCuerpo().CollidesWith(e1.getCuerpo())) {
 					e.colisionasteCon(e1);

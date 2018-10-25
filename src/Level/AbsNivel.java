@@ -31,7 +31,7 @@ public abstract class AbsNivel {//implementar runnable
 
 	
 	
-	//--------------------------------------------------------- METODOS
+	//-------------------------------- METODOS
 	
 	public abstract void crear();
 	public abstract void iniciar();
@@ -41,17 +41,13 @@ public abstract class AbsNivel {//implementar runnable
 	
 	protected AbsNivel(){
 		demasEntidades = new ArrayList<>();
-
 		player = Player.getInstance();
 		pantalla = PantallaJuego.getInstance();
 		vida= new Mostrador(IconsManager.v1);
 		vida.setBounds(700, 500, 100, 100);
-		
 		toRemoveEnt = new LinkedList<>();
 		toAddEnt= new LinkedList<>();
-		
 		eliminaEnemigosConEnter = new Discreta(this::eliminaTodosLosEnemies, Discreta.enter);	
-	
 	}
 	
 	public void eliminaTodosLosEnemies(){
@@ -61,9 +57,6 @@ public abstract class AbsNivel {//implementar runnable
 	
 	public void agregarTodo() {
 		pantalla.addMostrable(player.getMostrable());
-		//enemies.forEach(e -> pantalla.addMostrable(e.getMostrable()));
-		//enemiesK.forEach(e->pantalla.addMostrable(e.getMostrable()));
-		//obstacles.forEach(e -> pantalla.addMostrable(e.getMostrable()));
 		demasEntidades.forEach(e -> pantalla.addMostrable(e.getMostrable()));		
 		demasEntidades.forEach(ElConocedor.instancia()::add);
 		ElConocedor.instancia().add(player);	
@@ -74,20 +67,16 @@ public abstract class AbsNivel {//implementar runnable
 		player.refresh();
 		demasEntidades.forEach(e->e.refresh());	
 		ElConocedor.instancia().refresh();
-		
 		while(!toRemoveEnt.isEmpty()){
 			Entidad e = toRemoveEnt.remove();
 			player.sumarPuntaje(e);
 			demasEntidades.remove(e);
 			PantallaJuego.getInstance().removeMostrable(e.getMostrable());
 		}
-		
 		while(!toAddEnt.isEmpty()){
 			Entidad e = toAddEnt.remove();
 			demasEntidades.add(e);
 		}	
-		
-		
 	}	
 	
 	protected void controlarVida() {

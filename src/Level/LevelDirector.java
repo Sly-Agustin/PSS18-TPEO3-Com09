@@ -22,6 +22,20 @@ public class LevelDirector implements Runnable{
 		nivel= new CrearNivel(i);
 	}
 	
+	public void run() {
+		long time = System.nanoTime();
+		long time2 = System.nanoTime();
+		long tiempoDeFrame = 1_000_000_000L/60;
+		while(true){
+			time = System.nanoTime(); 
+			nivel.refrescarTodo();
+			time2 = System.nanoTime();
+			esperar(tiempoDeFrame-(time2-time));
+			PantallaJuego.getInstance().refresh();
+			cambiarNivel();
+		}	
+	}
+	
 	public void inicializarNivel(){
 		nivel.crear();
 		nivel.iniciar();
@@ -36,7 +50,6 @@ public class LevelDirector implements Runnable{
 		}
 	}
 	
-
 	private void esperar(long l) {
 		try{
 			if(l>0)
@@ -48,21 +61,5 @@ public class LevelDirector implements Runnable{
 		}
 		
 	}
-
 	
-	public void run() {
-		long time = System.nanoTime();
-		long time2 = System.nanoTime();
-		long tiempoDeFrame = 1_000_000_000L/60;
-		while(true){
-			time = System.nanoTime(); 
-			nivel.refrescarTodo();
-			time2 = System.nanoTime();
-			esperar(tiempoDeFrame-(time2-time));
-			PantallaJuego.getInstance().refresh();
-			cambiarNivel();
-		}	
-	}
-
-
 }

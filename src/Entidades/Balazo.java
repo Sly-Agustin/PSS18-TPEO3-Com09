@@ -28,11 +28,9 @@ public abstract class Balazo extends Entidad{
 	public abstract int getDano();
 		
 	public abstract void aceptar(Colisionador c);
-
-	@Override
+	
 	public abstract void colisionasteCon(Entidad another) ;
 
-	@Override
 	public abstract void disparar();
 
 }

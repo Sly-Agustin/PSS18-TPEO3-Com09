@@ -9,9 +9,6 @@ import Entidades.Player;
 public class CEnemigoKami extends Colisionador {
 //Visitor concrete
 
-
-	private Enemigo e;
-
 	private float damage;
 
 	public CEnemigoKami(float damage) { 
@@ -19,8 +16,8 @@ public class CEnemigoKami extends Colisionador {
 	}
 
 	public void afectarJugador(Player p) {
-		p.setVida(p.getVida()-damage);
 		System.out.println("Kami vs Player");
+		p.setVida(p.getVida()-damage);
 		/**
 		 * Al colisionar al jugador se le descuenta de la vida que tenga la vida del enemigo
 		 * dividido por el puntaje que tenga al morir.
