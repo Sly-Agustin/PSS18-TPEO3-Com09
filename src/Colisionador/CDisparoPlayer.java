@@ -20,15 +20,19 @@ public class CDisparoPlayer extends Colisionador {
 		//El disparo player no afecta al jugador
 	}
 	public void afectarEnemigo(Enemigo e) {
-		e.setVida(e.getVida()-damage);			
-	}
-	public void afectarEnemigoKami(EnemigoKami ek) {
-		ek.setVida(ek.getVida()-damage);
-	/*	
+		e.setVida(e.getVida()-damage);	
+		if ( e.getVida() <= 0) {
+			e.dropearPW();
+		}
+		/*
 		powerUp.cuerpo.setPosicion(cuerpo.getPosicion().sumar(new Coords(playerIcon.getIconWidth()/2- b.getMostrable().getIcon().getIconWidth()/2,-40)));
 		AbsNivel n = LevelDirector.instancia().currentLevel();
 		n.addEntity(b);
-		ElConocedor.instancia().add(b);*/
+		ElConocedor.instancia().add(b);
+		*/
+	}
+	public void afectarEnemigoKami(EnemigoKami ek) {
+		ek.setVida(ek.getVida()-damage);
 	}
 	public void afectarEnemigoArmado(EnemigoArmado ea) {
 		ea.setVida(ea.getVida()-damage);

@@ -40,4 +40,10 @@ public class SacaDanoPU extends PowerUp{
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public void activar() {
+		// TODO Auto-generated method stub
+		
+	}
 }

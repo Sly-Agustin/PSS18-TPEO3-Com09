@@ -43,4 +43,10 @@ public class SacaVidaPU extends PowerUp{
 		
 	}
 
+	@Override
+	public void activar() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

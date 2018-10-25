@@ -44,4 +44,12 @@ public class Enemigo extends Entidad {
 		
 	}
 	
+	public void dropearPW() {
+		/*	 generar un random
+		 *  	si es el numero elegido
+		 *  		crear el pw
+		 *  		agregarlo a la pantalla y a la lista de entidades
+		 */
+	}
+	
 }
