@@ -8,9 +8,6 @@ import Entidades.Obstaculo;
 import Entidades.Player;
 
 public class CEnemigoArmado extends Colisionador{
-	
-
-	private Enemigo e;
 
 	private float damage;
 

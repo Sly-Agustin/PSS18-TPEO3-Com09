@@ -2,19 +2,27 @@ package Entidades;
 
 import javax.swing.Icon;
 
-import Colisionador.Colisionador;
+import Colisionador.*;
+import IA.*;
 
-public class SumaVidaPU extends PowerUp{
+public class TiroTriple extends PowerUp{
 
-	protected SumaVidaPU(Icon icon) {
+
+	protected float velocidad = 1f;
+	protected CSumaVida col;
+
+	
+	protected TiroTriple(Icon icon) {
 		super(icon);
 		valor=20;
+		ia= new PowerUpIA();
+		col= new CSumaVida(15);
 	}
 
 	@Override
 	public void onRefresh() {
-		// TODO Auto-generated method stub
-		
+		cuerpo.mover(ia.ADondeVoy(this).multK(velocidad));
+		vida--;
 	}
 
 	@Override
@@ -25,14 +33,12 @@ public class SumaVidaPU extends PowerUp{
 
 	@Override
 	public void aceptar(Colisionador c) {
-		// TODO Auto-generated method stub
-		
+		c.afectarSumaVida(this);
 	}
 
 	@Override
 	public void colisionasteCon(Entidad another) {
-		// TODO Auto-generated method stub
-		
+		another.aceptar(col);
 	}
 
 	@Override

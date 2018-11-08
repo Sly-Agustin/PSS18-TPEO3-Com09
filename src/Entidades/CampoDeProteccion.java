@@ -1,14 +1,21 @@
 package Entidades;
 
 import javax.swing.Icon;
+import Colisionador.*;
+import IA.*;
 
 import Colisionador.Colisionador;
 
-public class SacaDanoPU extends PowerUp{
+public class CampoDeProteccion extends PowerUp{
 
-	protected SacaDanoPU(Icon icon) {
+	protected float velocidad= 1f;
+	protected CCampoDeProteccion col;
+	
+	protected CampoDeProteccion(Icon icon) {
 		super(icon);
 		valor=-10;
+		ia= new PowerUpIA();
+		col= new CCampoDeProteccion();
 	}
 
 	@Override

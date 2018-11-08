@@ -26,6 +26,9 @@ public class CrearNivel extends AbsNivel {
 			cantObs = 2*i;
 			cantEnemsA= 2*i;
 		}	
+		else {
+			gane();
+		}
 		super.controlarVida();
 	}
 

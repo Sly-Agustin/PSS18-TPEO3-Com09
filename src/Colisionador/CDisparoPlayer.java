@@ -32,6 +32,7 @@ public class CDisparoPlayer extends Colisionador {
 	}
 	public void afectarEnemigoArmado(EnemigoArmado ea) {
 		ea.setVida(ea.getVida()-damage);
+		ea.comprobarVida();
 	}
 	public void afectarObstaculo(Obstaculo o) {
 		o.setVida(o.getVida()-damage);

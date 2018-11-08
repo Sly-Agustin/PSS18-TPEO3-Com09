@@ -13,7 +13,7 @@ public abstract class Entidad implements Refrescable {
 	
 	
 	/*
-	 * Hacer el patron State en eneitdad para generalizar la IA
+	 * Hacer el patron State en entidad para generalizar la IA
 	 * meter el onRefresh en entidad
 	 * generalizar mas todo
 	 * los puntajes y demas cosas buscar de meterlas en entidad

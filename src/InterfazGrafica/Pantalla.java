@@ -2,9 +2,17 @@ package InterfazGrafica;
 
 import java.awt.event.KeyListener;
 
-public abstract class Pantalla {
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 
-	protected abstract void inicializar();
+import Datos.GameData;
+import Datos.IconsManager;
+
+public abstract class Pantalla {
+	
+	
+
+	protected abstract void inicializar() ;
 
 	public  abstract void addMostrable(Mostrador mostrable);
 	

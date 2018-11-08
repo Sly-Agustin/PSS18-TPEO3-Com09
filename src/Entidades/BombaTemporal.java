@@ -2,25 +2,19 @@ package Entidades;
 
 import javax.swing.Icon;
 
-import Colisionador.*;
-import IA.*;
+import Colisionador.Colisionador;
 
-public class SuperMisil extends PowerUp{
+public class BombaTemporal extends PowerUp{
 
-	protected float velocidad = 1f;
-	protected CBombaTemporal col;
-	
-	protected SuperMisil(Icon icon) {
+	protected BombaTemporal(Icon icon) {
 		super(icon);
-		valor=-20;
-		ia= new PowerUpIA();
-		col= new CBombaTemporal(15);
+		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public void onRefresh() {
-		cuerpo.mover(ia.ADondeVoy(this).multK(velocidad));
-		vida--;
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
@@ -31,12 +25,14 @@ public class SuperMisil extends PowerUp{
 
 	@Override
 	public void aceptar(Colisionador c) {
-		c.afectarSacaVida(this);
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
 	public void colisionasteCon(Entidad another) {
-		another.aceptar(col);
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override

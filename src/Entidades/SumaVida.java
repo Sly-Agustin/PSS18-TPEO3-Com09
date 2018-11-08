@@ -2,13 +2,21 @@ package Entidades;
 
 import javax.swing.Icon;
 
-import Colisionador.Colisionador;
+import Colisionador.*;
+import IA.*;
 
-public class SumaDanoPU extends PowerUp{
+public class SumaVida extends PowerUp{
 
-	protected SumaDanoPU(Icon icon) {
+
+	protected float velocidad = 1f;
+	protected CTiroTriple col;
+
+	
+	protected SumaVida(Icon icon) {
 		super(icon);
 		valor=10;
+		ia= new PowerUpIA();
+		col= new CSumaVida();
 	}
 
 	@Override
