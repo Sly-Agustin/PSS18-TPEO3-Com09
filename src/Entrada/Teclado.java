@@ -5,8 +5,7 @@ import java.awt.event.KeyListener;
 
 import InterfazGrafica.PantallaJuego;
 
-public class Teclado implements KeyListener
-{
+public class Teclado implements KeyListener{
 	
 	private boolean left;
 	private boolean right;
@@ -17,20 +16,10 @@ public class Teclado implements KeyListener
 		right=false;
 		PantallaJuego.getInstance().addTeclado(this);
 	}
-	/*
-	public void destroy()
-	{
-		Pantalla.getInstance().removeTeclado(this);
-	}*/
 
-	@Override
-	public void keyTyped(KeyEvent e) 
-	{
-		// TODO Auto-generated method stub
-		
-	}
+	
+	public void keyTyped(KeyEvent e) {}
 
-	@Override
 	public void keyPressed(KeyEvent e) {
 		if(e.getKeyChar() == 'a' || e.getKeyChar() == 'A' ) {
 			left = true;
@@ -41,7 +30,6 @@ public class Teclado implements KeyListener
 		
 	}
 
-	@Override
 	public void keyReleased(KeyEvent e) {
 		if(e.getKeyChar() == 'a' || e.getKeyChar() == 'A' ) {
 			left = false;

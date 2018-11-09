@@ -1,5 +1,6 @@
 package Level;
 
+import InterfazGrafica.PantallaInicio;
 import InterfazGrafica.PantallaJuego;
 
 public class LevelDirector implements Runnable{
@@ -31,6 +32,7 @@ public class LevelDirector implements Runnable{
 			nivel.refrescarTodo();
 			time2 = System.nanoTime();
 			esperar(tiempoDeFrame-(time2-time));
+			PantallaInicio.getInstance().refresh();
 			PantallaJuego.getInstance().refresh();
 			cambiarNivel();
 		}	
@@ -56,7 +58,6 @@ public class LevelDirector implements Runnable{
 			Thread.sleep(l/1000000);
 		}
 		catch (Exception e) {
-			// TODO: handle exception
 			System.out.println("Error en el sleep");
 		}
 		

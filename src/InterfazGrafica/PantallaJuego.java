@@ -1,18 +1,16 @@
 package InterfazGrafica;
 
 import java.awt.Container;
-import java.awt.Dimension;
 import java.awt.event.KeyListener;
-
 import Datos.*;
-import Entrada.Discreta;
-import Entrada.Teclado;
+import Entrada.*;
 import Level.LevelDirector;
 
 import javax.swing.*;
 import javax.swing.JLabel;
 
 public class PantallaJuego extends Pantalla{
+	
 	private static PantallaJuego instancia;
 	public static PantallaJuego getInstance() {
 		instancia = instancia == null ? new PantallaJuego() : instancia;
@@ -24,7 +22,7 @@ public class PantallaJuego extends Pantalla{
 	private Container container;
 
 	private PantallaJuego() {	
-		inicializar();
+		run();
 	}
 
 	protected void inicializar() {
@@ -53,6 +51,10 @@ public class PantallaJuego extends Pantalla{
 
 	public void refresh() {
 		frame.repaint();	
+	}
+
+	public void run() {
+		inicializar();
 	}
 
 
