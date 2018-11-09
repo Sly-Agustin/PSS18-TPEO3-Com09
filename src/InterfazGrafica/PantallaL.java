@@ -22,7 +22,6 @@ public class PantallaL extends Pantalla{
 
 	private JFrame frame;
 	private Container container;
-	//private LevelDirector leverDirector;
 
 	private PantallaL() {	
 		inicializar();
@@ -54,6 +53,12 @@ public class PantallaL extends Pantalla{
 
 	public void refresh() {
 		frame.repaint();	
+	}
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		
 	}
 
 

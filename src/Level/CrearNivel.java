@@ -75,22 +75,23 @@ public class CrearNivel extends AbsNivel {
 			Coords c = new Coords(ancho*i/(cantObs+1),200);
 			obs.getCuerpo().setPosicion(c);
 		}
-		
+
 		player.getCuerpo().setPosicion(new Coords(400,500));	
 		controlarVida();
 	}
-	
+
 	public int getNumeroNivel() {
 		return numeroNivel;
 	}
 
-	
+
 	public void iniciar() {
-		// TODO Auto-generated method stub
-		
+	//	pantalla = PantallaInicio.getInstance();
+	}
+	public boolean limpiar() {
+		return false;
 	}
 
-	@Override
 	public boolean gane() {
 		boolean gane=false;
 		if(numeroNivel==5 && demasEntidades.isEmpty()) {
@@ -99,7 +100,7 @@ public class CrearNivel extends AbsNivel {
 		}
 		return gane;
 	}
-	
+
 	public boolean perdi() {
 		boolean perdi=false;
 		if(player.getVida()<=0) {
@@ -109,13 +110,6 @@ public class CrearNivel extends AbsNivel {
 		return true;
 	}
 
-	@Override
-	public void limpiar() {
-		for(Entidad e: demasEntidades) {
-				removeEntity(e);
-		}
-		
-	}
 	
 
 	protected void controlarVida() {
@@ -156,6 +150,6 @@ public class CrearNivel extends AbsNivel {
 		perdi();
 		super.refrescarTodo();
 	}
-	
+
 
 }

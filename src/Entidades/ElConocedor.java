@@ -37,8 +37,8 @@ public class ElConocedor implements Refrescable{
 		for(Entidad e : entidades) {
 			if(e.getVida()<=0) {
 				removeQueue.add(e);
-				System.out.println("Elimino "+e.getName());
-				System.out.println("Quedo "+e.getName());
+				//System.out.println("Elimino "+e.getName());
+				//System.out.println("Quedo "+e.getName());
 				LevelDirector.instancia().currentLevel().removeEntity(e);
 			}
 			if(e.getCuerpo().getPosicion().getX()>600 && e.getCuerpo().getPosicion().getY()>800) {

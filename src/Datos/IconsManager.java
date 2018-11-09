@@ -4,11 +4,10 @@ import javax.swing.*;
 
 import Animation.Pictures;
 
-public class IconsManager 
-{
-	public static Icon balazoEnemigo= new ImageIcon(Pictures.fireEnemigo);
+public class IconsManager {
 	public static Icon fondo = new ImageIcon(Pictures.fondo);
-	public static Icon fondoI= new ImageIcon(Pictures.fondoI);
+	public static Icon fondoInicio = new ImageIcon(Pictures.fondoInicio);
+	public static Icon balazoEnemigo= new ImageIcon(Pictures.fireEnemigo);
 	public static Icon fondoL= new ImageIcon(Pictures.fondoL);
 	public static Icon fondoW= new ImageIcon(Pictures.fondoW);
 	public static Icon balazo = new ImageIcon(Pictures.balazo);

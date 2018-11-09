@@ -1,5 +1,6 @@
 package Level;
 
+import InterfazGrafica.PantallaInicio;
 import InterfazGrafica.PantallaJuego;
 import Entidades.*;
 
@@ -32,6 +33,7 @@ public class LevelDirector implements Runnable{
 			nivel.refrescarTodo();
 			time2 = System.nanoTime();
 			esperar(tiempoDeFrame-(time2-time));
+//			PantallaInicio.getInstance().refresh();
 			PantallaJuego.getInstance().refresh();
 			controlarNivel();
 		}	
@@ -44,7 +46,7 @@ public class LevelDirector implements Runnable{
 	}
 	
 	private void controlarNivel() {
-		System.out.println("Cantidad de entidades: "+nivel.getCantidadEntidades());
+		//System.out.println("Cantidad de entidades: "+nivel.getCantidadEntidades());
 
 		if(nivel.getCantidadEntidades()==0) {
 			cambiarNivel();
@@ -52,7 +54,7 @@ public class LevelDirector implements Runnable{
 	}
 	
 	public void cambiarNivel() {
-				nivel.eliminaTodosLosEnemies();
+		nivel.eliminaTodosLosEnemies();
 		nivel= new CrearNivel(nivel.getNumeroNivel()+1);			
 		inicializarNivel();
 }
@@ -64,7 +66,6 @@ public class LevelDirector implements Runnable{
 			Thread.sleep(l/1000000);
 		}
 		catch (Exception e) {
-			// TODO: handle exception
 			System.out.println("Error en el sleep");
 		}
 		

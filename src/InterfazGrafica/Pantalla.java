@@ -2,15 +2,14 @@ package InterfazGrafica;
 
 import java.awt.event.KeyListener;
 
+
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 import Datos.GameData;
 import Datos.IconsManager;
 
-public abstract class Pantalla {
-	
-	
+public abstract class Pantalla implements Runnable{
 
 	protected abstract void inicializar() ;
 
@@ -21,5 +20,7 @@ public abstract class Pantalla {
 	public abstract void addTeclado(KeyListener kl);
 
 	public abstract void refresh();
+	
+	public abstract void run();
 	
 }
