@@ -12,6 +12,7 @@ public class CEnemigo extends Colisionador{
 	
 	public void afectarJugador(Player p) {
 		p.setVida(p.getVida()-(e.getVida()/e.getValor()));
+		System.out.println("Enemigo choco con Jugador");
 		/**
 		 * Al colisionar al jugador se le descuenta de la vida que tenga la vida del enemigo
 		 * dividido por el puntaje que tenga al morir.

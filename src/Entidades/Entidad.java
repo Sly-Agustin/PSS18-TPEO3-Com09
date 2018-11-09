@@ -13,7 +13,7 @@ public abstract class Entidad implements Refrescable {
 	
 	
 	/*
-	 * Hacer el patron State en eneitdad para generalizar la IA
+	 * Hacer el patron State en entidad para generalizar la IA
 	 * meter el onRefresh en entidad
 	 * generalizar mas todo
 	 * los puntajes y demas cosas buscar de meterlas en entidad
@@ -30,7 +30,6 @@ public abstract class Entidad implements Refrescable {
 	protected Entidad(Icon icon) {
 		cuerpo = new CuerpoRigido(icon.getIconWidth(),icon.getIconHeight());
 		mostrador = new Mostrador(icon);
-		
 	}
 	
 	public abstract void onRefresh();
@@ -50,6 +49,9 @@ public abstract class Entidad implements Refrescable {
 	public void setVida(float f) {
 		vida=f;
 	}
+	public void setIA(IA ia) {
+		this.ia = ia;
+	}
 	
 	
 	public void refresh() {
@@ -64,7 +66,11 @@ public abstract class Entidad implements Refrescable {
 
 	public abstract void aceptar(Colisionador c);
 
-	public abstract void colisionasteCon(Entidad another);
+	public void colisionasteCon(Entidad another) {
+		another.aceptar(col);
+	}
+
 	
 	public abstract void disparar();
+	
 }

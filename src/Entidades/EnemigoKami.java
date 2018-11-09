@@ -6,17 +6,18 @@ import javax.swing.ImageIcon;
 import Animation.Pictures;
 import Colisionador.CEnemigoKami;
 import Colisionador.Colisionador;
-import IA.KamiIA1;
+import IA.FollowIA;
 import IA.KamiIA2;
+import TiposDeDatos.Coords;
 
 public class EnemigoKami extends Enemigo{
 //Visitable
 	
 	public static Icon ic2 = new ImageIcon(Pictures.enemigo2);
-	
 	private float velocidad = 2f;
+	private boolean cambieDeIA = false;
 	protected int dano;
-	protected CEnemigoKami col;
+	int i = 0;
 	
 	public EnemigoKami(Icon icon) {
 		super(icon);
@@ -27,9 +28,12 @@ public class EnemigoKami extends Enemigo{
 		col = new CEnemigoKami(dano);
 	}
 
-	
 	public void onRefresh() {
-		cuerpo.mover(ia.ADondeVoy(this).multK(velocidad)); //Se  mueve como un disparo
+		cuerpo.mover(ia.ADondeVoy(this).multK(velocidad));
+		if(getVida()<=50 && !cambieDeIA) {
+			cambieDeIA = true;
+			ia = new FollowIA();
+		}
 	}
 	
 	public int getDano() {
@@ -39,10 +43,4 @@ public class EnemigoKami extends Enemigo{
 	public void aceptar(Colisionador c) {
 		c.afectarEnemigoKami(this);
 	}
-	
-	public void colisionasteCon(Entidad another) {
-		another.aceptar(col);	
-	}
-
-
 }

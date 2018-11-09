@@ -8,7 +8,7 @@ import TiposDeDatos.Coords;
 
 public class KamiIA2 implements IA{
 	
-	private static int modu = 60;
+	private static int modu = 60; //rango de movimiento aleatorio
 	private int i=1;
 	private int k =1;
 

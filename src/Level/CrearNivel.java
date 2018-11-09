@@ -34,16 +34,16 @@ public class CrearNivel extends AbsNivel {
 		//ENEMIGOS 1
 		int cantXNivel= cantEnems/3;
 		int n=0;
-		int nivel=1;
+		int nivelAltura=1;
 		for(int i=1; i<=cantEnems ; i++) {
 			Enemigo enem = new Enemigo(Enemigo.ic1);
 			demasEntidades.add(enem);
-			Coords c = new Coords(ancho*i/(cantEnems+1),100*nivel);
+			Coords c = new Coords(ancho*i/(cantEnems+1),100*nivelAltura);
 			enem.getCuerpo().setPosicion(c);
 			n++;
 			if(n==cantXNivel) {
 				n=0;
-				nivel++;
+				nivelAltura++;
 			}
 		}
 		//ENEMIGOS KAMI

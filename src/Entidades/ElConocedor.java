@@ -1,9 +1,12 @@
 package Entidades;
 
-import java.util.*;
-import java.util.concurrent.LinkedBlockingDeque;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.Queue;
 
 import Level.LevelDirector;
+import TiposDeDatos.Coords;
 public class ElConocedor implements Refrescable{
 //Clase maestra que conoce todas las entidades y las colisiones que ocurren (Cliente)
 //Esta clase detecta y elimina las entidades que son disparadas

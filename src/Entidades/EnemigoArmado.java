@@ -12,6 +12,7 @@ import Datos.IconsManager;
 import Entrada.Discreta;
 import IA.ArmadoIA;
 import IA.DummyIA;
+import IA.FollowIA;
 import IA.KamiIA2;
 import Level.AbsNivel;
 import Level.LevelDirector;
@@ -24,6 +25,7 @@ public class EnemigoArmado extends Enemigo{
 public static Icon armadoIcon = new ImageIcon(Pictures.naveArmada);
 	
 	private float velocidad = 2f;
+	private boolean cambieDeIA = false;
 	protected int dano;
 	protected CEnemigoArmado col;
 
@@ -39,7 +41,11 @@ public static Icon armadoIcon = new ImageIcon(Pictures.naveArmada);
 
 	
 	public void onRefresh() {
-		cuerpo.mover(ia.ADondeVoy(this).multK(velocidad)); //Se mueve como un disparo
+		cuerpo.mover(ia.ADondeVoy(this).multK(velocidad)); 
+		if(getVida()<=50 && !cambieDeIA) {
+			cambieDeIA = true;
+			ia = new FollowIA();
+		}
 	}
 	
 	public int getDano() {

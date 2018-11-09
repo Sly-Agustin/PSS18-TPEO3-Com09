@@ -27,7 +27,6 @@ public class Coords {
 	public Coords sumar(Coords v) {
 		return new Coords (x+v.getX(), y+v.getY());
 	}
-
 	
 	public Coords multK(float k) {
 		return new Coords(x*k,y*k);
