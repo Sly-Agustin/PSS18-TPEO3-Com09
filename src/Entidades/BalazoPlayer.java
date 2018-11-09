@@ -15,14 +15,13 @@ public class BalazoPlayer extends Balazo{
 
 
 	protected float velocidad = 5f;
-	protected int dano; 
 	protected CDisparoPlayer col;
 
 	
-	public BalazoPlayer(Icon icon) {
+	public BalazoPlayer(Icon icon, int dano) {
 		super(icon);
 		ia = new IABalaPlayer();
-		dano=30;
+		this.dano=dano;
 		vida = 200;
 		col = new CDisparoPlayer(dano);
 	}
@@ -49,6 +48,10 @@ public class BalazoPlayer extends Balazo{
 	public void disparar() {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	public String getName() {
+		return "Bala player";
 	}
 
 }

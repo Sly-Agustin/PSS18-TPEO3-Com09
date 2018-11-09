@@ -22,7 +22,6 @@ public class PantallaJuego extends Pantalla{
 
 	private JFrame frame;
 	private Container container;
-	//private LevelDirector leverDirector;
 
 	private PantallaJuego() {	
 		inicializar();

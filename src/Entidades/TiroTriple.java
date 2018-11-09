@@ -22,7 +22,6 @@ public class TiroTriple extends PowerUp{
 	@Override
 	public void onRefresh() {
 		cuerpo.mover(ia.ADondeVoy(this).multK(velocidad));
-		vida--;
 	}
 
 	@Override
@@ -33,7 +32,7 @@ public class TiroTriple extends PowerUp{
 
 	@Override
 	public void aceptar(Colisionador c) {
-		c.afectarSumaVida(this);
+		c.afectarTiroTriple(this);
 	}
 
 	@Override
@@ -43,6 +42,12 @@ public class TiroTriple extends PowerUp{
 
 	@Override
 	public void disparar() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void activar() {
 		// TODO Auto-generated method stub
 		
 	}

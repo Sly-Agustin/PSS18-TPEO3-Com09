@@ -2,6 +2,7 @@ package Entidades;
 
 import javax.swing.Icon;
 
+import Colisionador.CPowerUp;
 import Colisionador.Colisionador;
 
 public abstract class PowerUp extends Entidad{
@@ -10,7 +11,10 @@ public abstract class PowerUp extends Entidad{
 	
 	protected PowerUp(Icon icon) {
 		super(icon);	
+		col = new CPowerUp();
 	}
+	
+	public abstract void activar();
 	
 	public abstract void onRefresh();
 
@@ -18,10 +22,11 @@ public abstract class PowerUp extends Entidad{
 		
 	public abstract void aceptar(Colisionador c);
 
-	@Override
 	public abstract void colisionasteCon(Entidad another) ;
 
-	@Override
 	public abstract void disparar();
 
+	public String getName() {
+		return "PowerUp";
+	}
 }

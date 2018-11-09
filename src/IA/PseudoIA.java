@@ -13,10 +13,10 @@ public class PseudoIA  implements IA{
 	public Coords ADondeVoy(Entidad e) {
 
 		int x = (int) e.getCuerpo().getPosicion().getX();
-		if(x >= GameData.WindowSize.getWidth()-e.getMostrable().getIcon().getIconWidth()*2){
+		if(x >= GameData.WindowSize.getWidth()-e.getMostrable().getIcon().getIconWidth()){
 			return Coords.izquierda;
 		}
-		if(x <= e.getMostrable().getIcon().getIconWidth()*2){
+		if(x <= e.getMostrable().getIcon().getIconWidth()){
 			return Coords.derecha;
 		}
 		if(teclado.left()){

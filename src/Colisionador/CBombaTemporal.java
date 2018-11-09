@@ -9,8 +9,7 @@ public class CBombaTemporal extends Colisionador{
 
 	private float damage;
 
-	public CBombaTemporal(float damage) {
-		this.damage = damage;
+	public CBombaTemporal() {
 	}
 
 	public void afectarJugador(Player p) {

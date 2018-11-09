@@ -14,10 +14,12 @@ public abstract class Colisionador
 	public void afectarObstaculo(Obstaculo o) {}
 	public void afectarEnemigoKami(EnemigoKami ek) {}
 	public void afectarEnemigoArmado(EnemigoArmado ea) {}
-	public void afectarSacaDano(CampoDeProteccion p) {}
-	public void afectarSumaDano(SumaVida p) {}
-	public void afectarSumaVida(TiroTriple p) {}
-	public void afectarSacaVida(SuperMisil p) {}
 	public void afectarDisparo(Balazo balazo) {}
+	public void afectarCampoDeProteccion(CampoDeProteccion p) {}
+	public void afectarSumaVida(SumaVida p) {}
+	public void afectarTiroTriple(TiroTriple p) {}
+	public void afectarSuperMisil(SuperMisil p) {}
+	public void afectarBombaTemporal(BombaTemporal p) {}
+	public void afectarDetenerTiempo(DetenerTiempo p) {}
 	
 }

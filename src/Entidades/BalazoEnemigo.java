@@ -14,15 +14,15 @@ public class BalazoEnemigo extends Balazo{
 //Concrete Element - Visitable
 
 	protected float velocidad = 5f;
-	protected int dano; 
 	protected CDisparoEnemigo col;
 
 
-	public BalazoEnemigo(Icon icon) {
+	public BalazoEnemigo(Icon icon, int dano) {
 		super(icon);
 		ia = new IABalaEnemigo();
 		dano= 5;
 		vida = 200;
+		this.dano=dano;
 		col = new CDisparoEnemigo(dano);
 	}
 
@@ -52,6 +52,10 @@ public class BalazoEnemigo extends Balazo{
 	public void disparar() {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	public String getName() {
+		return "Bala enemigo";
 	}
 
 }

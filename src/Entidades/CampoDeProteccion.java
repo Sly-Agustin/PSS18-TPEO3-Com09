@@ -18,33 +18,30 @@ public class CampoDeProteccion extends PowerUp{
 		col= new CCampoDeProteccion();
 	}
 
-	@Override
-	public void onRefresh() {
-		// TODO Auto-generated method stub
+	public void activar() {
 		
 	}
+	
+	public void onRefresh() {
+		cuerpo.mover(ia.ADondeVoy(this).multK(velocidad));
+	}
 
-	@Override
 	public int getDano() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
-	@Override
 	public void aceptar(Colisionador c) {
-		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
 	public void colisionasteCon(Entidad another) {
-		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
 	public void disparar() {
-		// TODO Auto-generated method stub
 		
 	}
+
+
+	
 }

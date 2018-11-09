@@ -42,4 +42,8 @@ public class Obstaculo extends Entidad {
 		
 	}
 	
+	public String getName() {
+		return "Obstaculo";
+	}
+	
 }

@@ -67,4 +67,7 @@ public abstract class Entidad implements Refrescable {
 	public abstract void colisionasteCon(Entidad another);
 	
 	public abstract void disparar();
+	
+	public abstract String getName();
+	
 }

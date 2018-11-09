@@ -2,9 +2,11 @@ package Level;
 
 import Datos.GameData;
 import Datos.IconsManager;
+import Entidades.ElConocedor;
 import Entidades.Enemigo;
 import Entidades.EnemigoArmado;
 import Entidades.EnemigoKami;
+import Entidades.Entidad;
 import Entidades.Obstaculo;
 import Entrada.Discreta;
 import InterfazGrafica.*;
@@ -25,11 +27,11 @@ public class CrearNivel extends AbsNivel {
 			cantEnemsK=3*i;
 			cantObs = 2*i;
 			cantEnemsA= 2*i;
+			controlarVida();
 		}	
 		else {
 			gane();
 		}
-		super.controlarVida();
 	}
 
 	public void crear() {
@@ -37,16 +39,17 @@ public class CrearNivel extends AbsNivel {
 		//ENEMIGOS 1
 		int cantXNivel= cantEnems/3;
 		int n=0;
-		int nivel=1;
+		int nivelAltura=1;
 		for(int i=1; i<=cantEnems ; i++) {
 			Enemigo enem = new Enemigo(Enemigo.ic1);
 			demasEntidades.add(enem);
-			Coords c = new Coords(ancho*i/(cantEnems+1),100*nivel);
+			Coords c = new Coords(ancho*i/(cantEnems+1),100*nivelAltura);
 			enem.getCuerpo().setPosicion(c);
+			ElConocedor.instancia().add(enem);
 			n++;
 			if(n==cantXNivel) {
 				n=0;
-				nivel++;
+				nivelAltura++;
 			}
 		}
 		//ENEMIGOS KAMI
@@ -55,6 +58,7 @@ public class CrearNivel extends AbsNivel {
 			demasEntidades.add(enemK);
 			Coords c = new Coords(ancho*i/(cantEnemsK+1),350);
 			enemK.getCuerpo().setPosicion(c);
+			ElConocedor.instancia().add(enemK);
 		}
 		//ENEMIGOS ARMADOS
 		for(int i=1; i<=cantEnemsA; i++) {
@@ -62,6 +66,7 @@ public class CrearNivel extends AbsNivel {
 			demasEntidades.add(enemA);
 			Coords c= new Coords(ancho*i*2/(cantEnems+1),50);
 			enemA.getCuerpo().setPosicion(c);
+			ElConocedor.instancia().add(enemA);
 		}
 		//OBSTACULOS
 		for(int i=1; i<=cantObs; i++) {
@@ -72,7 +77,7 @@ public class CrearNivel extends AbsNivel {
 		}
 		
 		player.getCuerpo().setPosicion(new Coords(400,500));	
-		super.controlarVida();
+		controlarVida();
 	}
 	
 	public int getNumeroNivel() {
@@ -105,13 +110,48 @@ public class CrearNivel extends AbsNivel {
 	}
 
 	@Override
-	public boolean limpiar() {
-		// TODO Auto-generated method stub
-		return false;
+	public void limpiar() {
+		for(Entidad e: demasEntidades) {
+				removeEntity(e);
+		}
+		
 	}
 	
+
+	protected void controlarVida() {
+		if(player.getVida() >83.4) {
+			vida.setIcon(IconsManager.v1);
+			PantallaJuego.getInstance().addMostrable(vida);
+		}
+		else 
+			if(player.getVida() > 66.8) {
+				vida.setIcon(IconsManager.v2);
+				PantallaJuego.getInstance().addMostrable(vida);
+			}
+			else 
+				if(player.getVida() >50.2){
+					vida.setIcon(IconsManager.v3);
+					PantallaJuego.getInstance().addMostrable(vida);
+				}
+				else
+					if(player.getVida() > 33.6){
+						vida.setIcon(IconsManager.v4);
+						PantallaJuego.getInstance().addMostrable(vida);
+					}
+					else
+						if(player.getVida() > 17){
+							vida.setIcon(IconsManager.v5);
+							PantallaJuego.getInstance().addMostrable(vida);
+						}
+						else {
+							vida.setIcon(IconsManager.v6);
+							PantallaJuego.getInstance().addMostrable(vida);
+						}
+	}
+	
+
 	public void refrescarTodo() {
-		super.controlarVida();
+		controlarVida();
 		gane();
 		perdi();
 		super.refrescarTodo();

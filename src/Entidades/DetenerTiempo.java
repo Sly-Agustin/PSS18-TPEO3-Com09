@@ -2,19 +2,26 @@ package Entidades;
 
 import javax.swing.Icon;
 
+import Colisionador.CCampoDeProteccion;
 import Colisionador.Colisionador;
+import IA.PowerUpIA;
+import Colisionador.*;
 
 public class DetenerTiempo extends PowerUp{
 
+	protected float velocidad= 1f;
+	protected CDetenerTiempo col;
+	
 	protected DetenerTiempo(Icon icon) {
 		super(icon);
-		// TODO Auto-generated constructor stub
+		valor=-10;
+		ia= new PowerUpIA();
+		col= new CDetenerTiempo();
 	}
 
 	@Override
 	public void onRefresh() {
-		// TODO Auto-generated method stub
-		
+		cuerpo.mover(ia.ADondeVoy(this).multK(velocidad));
 	}
 
 	@Override
@@ -41,4 +48,11 @@ public class DetenerTiempo extends PowerUp{
 		
 	}
 
+	@Override
+	public void activar() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
+

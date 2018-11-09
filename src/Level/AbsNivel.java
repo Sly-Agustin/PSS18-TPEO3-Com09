@@ -31,39 +31,33 @@ public abstract class AbsNivel {//implementar runnable
 
 	
 	
-	//--------------------------------------------------------- METODOS
+	//-------------------------------- METODOS
 	
 	public abstract void crear();
 	public abstract void iniciar();
 	public abstract boolean gane();
-	public abstract boolean limpiar();
+	public abstract void limpiar();
 	
 	
 	protected AbsNivel(){
 		demasEntidades = new ArrayList<>();
-
 		player = Player.getInstance();
 		pantalla = PantallaJuego.getInstance();
 		vida= new Mostrador(IconsManager.v1);
 		vida.setBounds(700, 500, 100, 100);
-		
 		toRemoveEnt = new LinkedList<>();
 		toAddEnt= new LinkedList<>();
-		
 		eliminaEnemigosConEnter = new Discreta(this::eliminaTodosLosEnemies, Discreta.enter);	
-	
 	}
 	
 	public void eliminaTodosLosEnemies(){
+		System.out.println("Entro a eliminar todas las enemies");
 		toRemoveEnt.addAll(demasEntidades);
 	}
 	
 	
 	public void agregarTodo() {
 		pantalla.addMostrable(player.getMostrable());
-		//enemies.forEach(e -> pantalla.addMostrable(e.getMostrable()));
-		//enemiesK.forEach(e->pantalla.addMostrable(e.getMostrable()));
-		//obstacles.forEach(e -> pantalla.addMostrable(e.getMostrable()));
 		demasEntidades.forEach(e -> pantalla.addMostrable(e.getMostrable()));		
 		demasEntidades.forEach(ElConocedor.instancia()::add);
 		ElConocedor.instancia().add(player);	
@@ -74,52 +68,17 @@ public abstract class AbsNivel {//implementar runnable
 		player.refresh();
 		demasEntidades.forEach(e->e.refresh());	
 		ElConocedor.instancia().refresh();
-		
 		while(!toRemoveEnt.isEmpty()){
 			Entidad e = toRemoveEnt.remove();
 			player.sumarPuntaje(e);
 			demasEntidades.remove(e);
 			PantallaJuego.getInstance().removeMostrable(e.getMostrable());
 		}
-		
 		while(!toAddEnt.isEmpty()){
 			Entidad e = toAddEnt.remove();
 			demasEntidades.add(e);
-		}	
-		
-		
+		}		
 	}	
-	
-	protected void controlarVida() {
-		if(player.getVida() >83.4) {
-			vida.setIcon(IconsManager.v1);
-			PantallaJuego.getInstance().addMostrable(vida);
-		}
-		else 
-			if(player.getVida() > 66.8) {
-				vida.setIcon(IconsManager.v2);
-				PantallaJuego.getInstance().addMostrable(vida);
-			}
-			else 
-				if(player.getVida() >50.2){
-					vida.setIcon(IconsManager.v3);
-					PantallaJuego.getInstance().addMostrable(vida);
-				}
-				else
-					if(player.getVida() > 33.6){
-						vida.setIcon(IconsManager.v4);
-						PantallaJuego.getInstance().addMostrable(vida);
-					}
-					else
-						if(player.getVida() > 17){
-							vida.setIcon(IconsManager.v5);
-							PantallaJuego.getInstance().addMostrable(vida);
-						}
-						else {
-							vida.setIcon(IconsManager.v6);
-							PantallaJuego.getInstance().addMostrable(vida);
-						}
-	}
 	
 	public abstract int getNumeroNivel();
 	
@@ -130,7 +89,6 @@ public abstract class AbsNivel {//implementar runnable
 	public int getCantidadEntidades() {
 		return demasEntidades.size();
 	}
-
 		
 	public final void addEntity(Entidad e) {
 		toAddEnt.add(e);
@@ -142,6 +100,7 @@ public abstract class AbsNivel {//implementar runnable
 		PantallaJuego.getInstance().removeMostrable(e.getMostrable()); 
 		demasEntidades.remove(e);
 	}
+
 	
 	
 }

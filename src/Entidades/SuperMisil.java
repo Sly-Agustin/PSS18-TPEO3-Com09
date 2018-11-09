@@ -8,19 +8,18 @@ import IA.*;
 public class SuperMisil extends PowerUp{
 
 	protected float velocidad = 1f;
-	protected CBombaTemporal col;
+	protected CSuperMisil col;
 	
 	protected SuperMisil(Icon icon) {
 		super(icon);
 		valor=-20;
 		ia= new PowerUpIA();
-		col= new CBombaTemporal(15);
+		col= new CSuperMisil();
 	}
 
 	@Override
 	public void onRefresh() {
 		cuerpo.mover(ia.ADondeVoy(this).multK(velocidad));
-		vida--;
 	}
 
 	@Override
@@ -31,7 +30,7 @@ public class SuperMisil extends PowerUp{
 
 	@Override
 	public void aceptar(Colisionador c) {
-		c.afectarSacaVida(this);
+		c.afectarSuperMisil(this);
 	}
 
 	@Override
@@ -41,6 +40,12 @@ public class SuperMisil extends PowerUp{
 
 	@Override
 	public void disparar() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void activar() {
 		// TODO Auto-generated method stub
 		
 	}

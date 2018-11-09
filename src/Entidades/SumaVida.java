@@ -9,14 +9,13 @@ public class SumaVida extends PowerUp{
 
 
 	protected float velocidad = 1f;
-	protected CTiroTriple col;
+	protected CSumaVida col;
 
 	
 	protected SumaVida(Icon icon) {
 		super(icon);
-		valor=10;
 		ia= new PowerUpIA();
-		col= new CSumaVida();
+		col= new CSumaVida(15);
 	}
 
 	@Override
@@ -48,4 +47,12 @@ public class SumaVida extends PowerUp{
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public void activar() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+
 }

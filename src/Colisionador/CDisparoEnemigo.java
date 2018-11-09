@@ -21,15 +21,9 @@ public class CDisparoEnemigo extends Colisionador{
 		p.setVida(p.getVida()-damage);
 		System.out.println("Vida: "+p.getVida());
 	}
-	public void afectarEnemigo(Enemigo e) {
-	
-	}
-	public void afectarEnemigoKami(EnemigoKami ek) {
-		
-	}
-	public void afectarObstaculo(Obstaculo o) {
-		
-	}
+	public void afectarEnemigo(Enemigo e) {}
+	public void afectarEnemigoKami(EnemigoKami ek) {}
+	public void afectarObstaculo(Obstaculo o) {}
 	public void afectarSacaDano(CampoDeProteccion p) {}
 	public void afectarSumaDano(SumaVida p) {}
 	public void afectarSumaVida(TiroTriple p) {}	

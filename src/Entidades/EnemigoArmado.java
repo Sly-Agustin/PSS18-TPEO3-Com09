@@ -15,6 +15,7 @@ import Datos.IconsManager;
 import Entrada.Discreta;
 import IA.ArmadoIA;
 import IA.DummyIA;
+import IA.FollowIA;
 import IA.KamiIA2;
 import Level.AbsNivel;
 import Level.LevelDirector;
@@ -27,7 +28,9 @@ public class EnemigoArmado extends Enemigo{
 public static Icon armadoIcon = new ImageIcon(Pictures.naveArmada);
 	
 	private float velocidad = 2f;
+	private boolean cambieDeIA = false;
 	protected int dano;
+	protected int danoBala;
 	protected CEnemigoArmado col;
 
 	
@@ -36,13 +39,18 @@ public static Icon armadoIcon = new ImageIcon(Pictures.naveArmada);
 		ia= new ArmadoIA();
 		valor=15;
 		dano=1000;
+		danoBala=10;
 		vida = 200;
 		col = new CEnemigoArmado(dano);
 	}
 
 	
 	public void onRefresh() {
-		cuerpo.mover(ia.ADondeVoy(this).multK(velocidad)); //Se mueve como un disparo
+		cuerpo.mover(ia.ADondeVoy(this).multK(velocidad)); 
+		if(getVida()<=50 && !cambieDeIA) {
+			cambieDeIA = true;
+			ia = new FollowIA();
+		}
 	}
 	
 	public int getDano() {
@@ -54,7 +62,7 @@ public static Icon armadoIcon = new ImageIcon(Pictures.naveArmada);
 	}
 
 	public void disparar() {
-		Balazo b = new BalazoEnemigo(IconsManager.balazoEnemigo);
+		Balazo b = new BalazoEnemigo(IconsManager.balazoEnemigo,danoBala);
 		b.cuerpo.setPosicion(cuerpo.getPosicion().sumar(new Coords(armadoIcon.getIconWidth()/2- b.getMostrable().getIcon().getIconWidth()/2,40)));
 		AbsNivel n = LevelDirector.instancia().currentLevel();
 		n.addEntity(b);
@@ -68,6 +76,20 @@ public static Icon armadoIcon = new ImageIcon(Pictures.naveArmada);
 	
 	public void setVida(int v) {
 		vida=v;
+	}
+	
+	public void setTiroTriple() {
+		disparar();
+		disparar();
+		disparar();
+	}
+	
+	public void setSuperMisil() {
+		danoBala=50;
+	}
+	
+	public String getName() {
+		return "Armado";
 	}
 	
 	public void comprobarVida() {
@@ -89,7 +111,7 @@ public static Icon armadoIcon = new ImageIcon(Pictures.naveArmada);
 					powerUp= new CampoDeProteccion(IconsManager.campoDeProteccion);
 			if(powerUp!=null) {
 				powerUp.cuerpo.setPosicion(cuerpo.getPosicion());
-				n.addEntity(powerUp);
+				//n.addEntity(powerUp);
 				//ElConocedor.instancia().add(powerUp);
 			}
 		}
