@@ -1,18 +1,12 @@
 package Main;
 
 
-import InterfazGrafica.PantallaJuego;
-//import InterfazGrafica.PantallaInicio;
-import Level.LevelDirector;
+import Login.loginPrincipal;
 
 public class Launcher {
 
 	public static void main(String[] x) {
-		PantallaJuego.getInstance();
-		LevelDirector director = LevelDirector.instancia();
-		director.inicializarNivel();
-//		if(director.currentLevel().getEntidades().isEmpty())
-//			director.cambiarNivel();
-		(new Thread(director)).start();
+		loginPrincipal asd = new loginPrincipal();
+		asd.setVisible(true);
 	}
 }
