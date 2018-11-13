@@ -58,6 +58,11 @@ public class LevelDirector implements Runnable{
 		nivel= new CrearNivel(nivel.getNumeroNivel()+1);			
 		inicializarNivel();
 }
+	private void cambiarNivel(int n) {
+		nivel.eliminaTodosLosEnemies();
+		nivel= new CrearNivel(n);
+		inicializarNivel();
+	}
 	
 	
 	private void esperar(long l) {
@@ -69,6 +74,10 @@ public class LevelDirector implements Runnable{
 			System.out.println("Error en el sleep");
 		}
 		
+	}
+	
+	public void reiniciar() {
+		cambiarNivel(1);
 	}
 	
 }

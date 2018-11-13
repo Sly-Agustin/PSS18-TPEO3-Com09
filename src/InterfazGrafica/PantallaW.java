@@ -22,7 +22,6 @@ public class PantallaW extends Pantalla{
 
 	private JFrame frame;
 	private Container container;
-	//private LevelDirector leverDirector;
 
 	private PantallaW() {	
 		inicializar();

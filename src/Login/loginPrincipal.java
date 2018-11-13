@@ -63,10 +63,7 @@ public class loginPrincipal extends JFrame{
 					String contrasenia = new String(passwordField.getPassword());
 					boolean loguear = verificadorUsuario.login(usuario, contrasenia);
 					if (loguear) {
-						PantallaJuego.getInstance();
-						LevelDirector director = LevelDirector.instancia();
-						director.inicializarNivel();
-						(new Thread(director)).start();
+						crearJuego();
 						dispose();
 					}
 					else {
@@ -75,5 +72,12 @@ public class loginPrincipal extends JFrame{
 				}
 			}
 		});
+	}
+	
+	public void crearJuego() {
+		PantallaJuego.getInstance();
+		LevelDirector director = LevelDirector.instancia();
+		director.inicializarNivel();
+		(new Thread(director)).start();
 	}
 }
