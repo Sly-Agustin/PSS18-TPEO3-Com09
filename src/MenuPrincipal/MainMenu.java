@@ -9,10 +9,12 @@ import javax.swing.JTextField;
 
 import InterfazGrafica.PantallaJuego;
 import Level.LevelDirector;
+import Login.loginPrincipal;
 
 public class MainMenu extends JFrame{
 	protected JButton btnJugar;
 	protected JButton btnSalir;
+	protected JButton btnCerrarSesion;
 	
 	public MainMenu() {
 		this.setSize(400, 400);
@@ -25,9 +27,14 @@ public class MainMenu extends JFrame{
 		getContentPane().add(btnJugar);
 		
 		btnSalir = new JButton("Salir");
-		btnSalir.setBounds(10, 274, 89, 23);
+		btnSalir.setBounds(10, 274, 116, 23);
 		setActionListenerSalir();
 		getContentPane().add(btnSalir);
+		
+		btnCerrarSesion = new JButton("Cerrar sesion");
+		btnCerrarSesion.setBounds(10, 308, 116, 23);
+		setActionListenerCerrarSesion();
+		getContentPane().add(btnCerrarSesion);
 	}
 	
 	protected void setActionListenerJugar() {
@@ -52,5 +59,15 @@ public class MainMenu extends JFrame{
 		LevelDirector director = LevelDirector.instancia();
 		director.inicializarNivel();
 		(new Thread(director)).start();
+	}
+	
+	protected void setActionListenerCerrarSesion() {
+		btnCerrarSesion.addActionListener(new ActionListener() {
+			@Override public void actionPerformed(ActionEvent e) {
+				loginPrincipal login = new loginPrincipal();
+				login.setVisible(true);
+				dispose();
+			}
+		});
 	}
 }

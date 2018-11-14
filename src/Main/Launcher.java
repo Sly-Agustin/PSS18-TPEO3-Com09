@@ -7,7 +7,7 @@ import MenuPrincipal.MainMenuUser;
 public class Launcher {
 
 	public static void main(String[] x) {
-		loginPrincipal asd = new loginPrincipal();
-		asd.setVisible(true);	
+		loginPrincipal login = new loginPrincipal();
+		login.setVisible(true);	
 	}
 }
