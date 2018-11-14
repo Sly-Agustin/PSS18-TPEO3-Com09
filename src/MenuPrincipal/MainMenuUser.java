@@ -27,7 +27,7 @@ public class MainMenuUser extends MainMenu{
 		
 		btnJugar = new JButton("Jugar");
 		btnJugar.setBounds(10, 27, 89, 23);
-		setActionListenerJugar();
+		//setActionListenerJugar();
 		getContentPane().add(btnJugar);
 		
 		textFieldComentarios = new JTextField();
@@ -45,35 +45,12 @@ public class MainMenuUser extends MainMenu{
 		getContentPane().add(btnSalir);
 	}
 	
-	/*private void setActionListenerJugar() {
-		btnJugar.addActionListener(new ActionListener() {
-			@Override public void actionPerformed(ActionEvent e) {
-				crearJuego();
-				dispose();
-			}
-		});
-	}*/
-	
 	private void setActionListenerEnviarComentarios() {
-		btnJugar.addActionListener(new ActionListener() {
+		btnEnviarComentarios.addActionListener(new ActionListener() {
 			@Override public void actionPerformed(ActionEvent e) {
 				String comentario = textFieldComentarios.getText();
+				EscrituraDeComentarios.escribirEnArchivo(comentario, user);
 			}
 		});
 	}
-	
-	/*private void setActionListenerSalir() {
-		btnJugar.addActionListener(new ActionListener() {
-			@Override public void actionPerformed(ActionEvent e) {
-				System.exit(0);
-			}
-		});
-	}*/
-	
-	/*private void crearJuego() {
-		PantallaJuego.getInstance();
-		LevelDirector director = LevelDirector.instancia();
-		director.inicializarNivel();
-		(new Thread(director)).start();
-	}*/
 }

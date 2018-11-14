@@ -26,6 +26,7 @@ public class MainMenu extends JFrame{
 		
 		btnSalir = new JButton("Salir");
 		btnSalir.setBounds(10, 274, 89, 23);
+		setActionListenerSalir();
 		getContentPane().add(btnSalir);
 	}
 	
@@ -39,7 +40,7 @@ public class MainMenu extends JFrame{
 	}
 	
 	protected void setActionListenerSalir() {
-		btnJugar.addActionListener(new ActionListener() {
+		btnSalir.addActionListener(new ActionListener() {
 			@Override public void actionPerformed(ActionEvent e) {
 				System.exit(0);
 			}

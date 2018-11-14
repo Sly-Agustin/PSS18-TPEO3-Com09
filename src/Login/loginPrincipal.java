@@ -6,6 +6,8 @@ import javax.swing.JTextField;
 
 import InterfazGrafica.PantallaJuego;
 import Level.LevelDirector;
+import MenuPrincipal.MainMenuAdmin;
+import MenuPrincipal.MainMenuUser;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -63,7 +65,7 @@ public class loginPrincipal extends JFrame{
 					String contrasenia = new String(passwordField.getPassword());
 					boolean loguear = verificadorUsuario.login(usuario, contrasenia);
 					if (loguear) {
-						crearJuego();		// Cambiar por iniciarMainMenu
+						abrirMenuPrincipal(usuario);
 						dispose();
 					}
 					else {
@@ -79,5 +81,15 @@ public class loginPrincipal extends JFrame{
 		LevelDirector director = LevelDirector.instancia();
 		director.inicializarNivel();
 		(new Thread(director)).start();
+	}
+	private void abrirMenuPrincipal(String usuario) {
+		if (usuario.equals("admin")) {
+			MainMenuAdmin menu = new MainMenuAdmin();
+			menu.setVisible(true);
+		}
+		else {
+			MainMenuUser menu = new MainMenuUser(usuario);
+			menu.setVisible(true);
+		}
 	}
 }
