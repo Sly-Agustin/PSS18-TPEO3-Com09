@@ -63,7 +63,7 @@ public class loginPrincipal extends JFrame{
 					String contrasenia = new String(passwordField.getPassword());
 					boolean loguear = verificadorUsuario.login(usuario, contrasenia);
 					if (loguear) {
-						crearJuego();
+						crearJuego();		// Cambiar por iniciarMainMenu
 						dispose();
 					}
 					else {
