@@ -4,6 +4,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import InterfazGrafica.PantallaJuego;
+import Level.LevelDirector;
 
 public class Teclado implements KeyListener{
 	
@@ -27,6 +28,10 @@ public class Teclado implements KeyListener{
 		if(e.getKeyChar() == 'D' || e.getKeyChar() == 'd' ) {
 			right = true;
 		}
+		if(e.getKeyCode() == KeyEvent.VK_ESCAPE) {
+			System.out.println("aprete escape");
+			PantallaJuego.getInstance().mostrarMenuEscape();
+		}
 		
 	}
 
@@ -36,6 +41,9 @@ public class Teclado implements KeyListener{
 		}
 		if(e.getKeyChar() == 'D' || e.getKeyChar() == 'd' ) {
 			right = false;
+		}
+		if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
+			System.out.println("deje de apretar escape");
 		}
 	}
 	
