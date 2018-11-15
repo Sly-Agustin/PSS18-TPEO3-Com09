@@ -5,8 +5,10 @@ import javax.swing.JFrame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 
 import InterfazGrafica.PantallaJuego;
 import Level.LevelDirector;
@@ -25,10 +27,9 @@ public class MainMenuUser extends MainMenu{
 		getContentPane().setSize(400, 400);;
 		getContentPane().setLayout(null);
 		
-		btnJugar = new JButton("Jugar");
+		/*btnJugar = new JButton("Jugar");
 		btnJugar.setBounds(10, 27, 89, 23);
-		//setActionListenerJugar();
-		getContentPane().add(btnJugar);
+		getContentPane().add(btnJugar);*/
 		
 		textFieldComentarios = new JTextField();
 		textFieldComentarios.setBounds(10, 85, 218, 99);
@@ -36,13 +37,19 @@ public class MainMenuUser extends MainMenu{
 		textFieldComentarios.setColumns(10);
 		
 		btnEnviarComentarios = new JButton("Enviar comentarios");
-		btnEnviarComentarios.setBounds(10, 207, 141, 23);
+		btnEnviarComentarios.setBounds(0, 209, 172, 23);
+		btnEnviarComentarios.setIcon(new ImageIcon(MainMenu.class.getResource("/Fondos/button.png")));
+		btnEnviarComentarios.setBorderPainted(false); 
+		btnEnviarComentarios.setFocusPainted( false );
+		btnEnviarComentarios.setOpaque(false);
+		btnEnviarComentarios.setContentAreaFilled( false );
+		btnEnviarComentarios.setHorizontalTextPosition(SwingConstants.CENTER);
 		setActionListenerEnviarComentarios();
 		getContentPane().add(btnEnviarComentarios);
 		
-		btnSalir = new JButton("Salir");
+		/*btnSalir = new JButton("Salir");
 		btnSalir.setBounds(10, 274, 89, 23);
-		getContentPane().add(btnSalir);
+		getContentPane().add(btnSalir);*/
 	}
 	
 	private void setActionListenerEnviarComentarios() {

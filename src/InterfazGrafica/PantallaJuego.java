@@ -7,9 +7,10 @@ import Datos.*;
 import Entidades.ElConocedor;
 import Entrada.*;
 import Level.LevelDirector;
+import MenuPrincipal.MainMenu;
 
 import javax.swing.*;
-import javax.swing.JLabel;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -49,11 +50,18 @@ public class PantallaJuego extends Pantalla{
 		panelEscape.setBounds(300, 200, 200, 200);
 		panelEscape.setVisible(false);
 		panelEscape.setLayout(null);
+		panelEscape.setOpaque(false);
 		container.add(panelEscape);
 		
 		btnReiniciarJuego = new JButton("Reiniciar juego");
 		btnReiniciarJuego.setVisible(false);
-		btnReiniciarJuego.setBounds(49, 53, 103, 29);
+		btnReiniciarJuego.setBounds(24, 34, 138, 48);
+		btnReiniciarJuego.setIcon(new ImageIcon(MainMenu.class.getResource("/Fondos/button.png")));
+		btnReiniciarJuego.setBorderPainted(false); 
+		btnReiniciarJuego.setFocusPainted( false );
+		btnReiniciarJuego.setOpaque(false);
+		btnReiniciarJuego.setContentAreaFilled( false );
+		btnReiniciarJuego.setHorizontalTextPosition(SwingConstants.CENTER);
 		btnReiniciarJuego.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				esconderMenuEscape();
@@ -64,16 +72,22 @@ public class PantallaJuego extends Pantalla{
 		
 		btnSalir = new JButton("Salir");
 		btnSalir.setVisible(false);
+		btnSalir.setIcon(new ImageIcon(MainMenu.class.getResource("/Fondos/button.png")));
+		btnSalir.setBorderPainted(false); 
+		btnSalir.setFocusPainted( false );
+		btnSalir.setOpaque(false);
+		btnSalir.setContentAreaFilled( false );
+		btnSalir.setHorizontalTextPosition(SwingConstants.CENTER);
 		btnSalir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.exit(0);
 			}
 		});
-		btnSalir.setBounds(49, 130, 103, 29);
+		btnSalir.setBounds(24, 110, 138, 58);
 		panelEscape.add(btnSalir);
 		
 		btnX = new JButton("X");
-		btnX.setBounds(161, 0, 39, 23);
+		btnX.setBounds(147, 0, 53, 23);
 		btnX.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				esconderMenuEscape();
